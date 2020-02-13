@@ -1,14 +1,16 @@
 <?php
 namespace crazycharlyday\vue;
 
-
+use crazycharlyday\date\CalcDate;
 
 class VueCreneau extends Vue
 {
-    private $list;
+    private $liste;
+    private $date;
 
     function __construct(...$l){
-        $this->list = $l;
+        $this->liste = $l;
+        $date = new CalcDate();
     }
 
     public function render($sel)
@@ -38,10 +40,10 @@ class VueCreneau extends Vue
         return <<< EOF
 <table>
     <tr>
-        <td>$this->list['jour']</td>
-        <td>$this->list['semaine']</td>
-        <td>$this->list['heuredeb']</td>
-        <td>$this->list['heurefin']</td>
+        <td>{$this->liste['jour']}</td>
+        <td>{$this->liste['semaine']}</td>
+        <td>{$this->liste['heuredeb']}</td>
+        <td>{$this->liste['heurefin']}</td>
     </tr>
 </table>
 EOF;
@@ -58,7 +60,7 @@ EOF;
             $heuref = $value['heurefin'];
             $html .= <<< EOF
     <tr>
-        <td>Date du creneau {calc_date('2020-01-20',$semaine,$jour,0)}</td>
+        <td>Date du creneau {$this->date->calc_date('2020-01-20',$semaine,$jour,0)}</td>
         <td>Heure de debut : $heured</td>
         <td>Heure de fin : $heuref</td>
     </tr>
