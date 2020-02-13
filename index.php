@@ -26,7 +26,7 @@
     <div class="bg-light border-right" id="sidebar-wrapper">
       <div class="sidebar-heading">GEG Site </div>
       <div class="list-group list-group-flush">
-        <a id="adminpanel" href="#" class="list-group-item list-group-item-action bg-danger">Panel Admin</a>
+        <a id="adminpanel" href="#" class="list-group-item list-group-item-action bg-light">Panel Admin</a>
         <div class="dropdown-divider"></div>
         <a href="#" class="list-group-item list-group-item-action bg-light">Planning</a>
         <a href="#" class="list-group-item list-group-item-action bg-light">Membres</a>
