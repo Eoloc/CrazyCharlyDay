@@ -69,7 +69,7 @@ class VueMembres extends Vue
                 <p class=\"card-text\">Absences : $user->nombreAbs</p>
                 <p class=\"card-text\">Permanances : $user->permanence</p>
                 <p class=\"card-text\">Statut : $user->statut</p>
-                <a href=\"membre/$user->iduser\" class=\"btn btn-primary\">Profil</a>
+                <a href=\"membres/$user->iduser\" class=\"btn btn-primary\">Profil</a>
             </div>
             </div>";
         }
