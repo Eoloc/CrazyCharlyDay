@@ -58,7 +58,9 @@ function calc_date($ancre, $semaine, $jour, $cycle = 0)
 $ancre = '2020-01-20';
 
 // Tests unitaires
-echo 'Test auj.' . print_r(calc_date($ancre, 0, 'A', 1)) . '<br/>';
-echo 'Test auj.' . calc_date($ancre, 0, 'A', 1)->jour_nom . '<br/>';
-echo 'Test lundi proch' . print_r(calc_date($ancre, 0, 'B', 1)) . '<br/>';
-echo 'Test début pr. cycle' .  print_r(calc_date($ancre, 1, 'A', 1)) . '<br/>';
+echo 'Test auj.' . print_r(calc_date($ancre, 'A', 1, 0)) . '<br/>';
+echo 'Test auj.' . calc_date($ancre, 'A', 1, 0)->jour_nom . '<br/>';
+echo 'Test lundi proch' . print_r(calc_date($ancre, 'B', 1, 0)) . '<br/>';
+echo 'Test début pr. cycle' .  print_r(calc_date($ancre, 'A', 1, 1)) . '<br/>';
+
+?>

@@ -3,7 +3,6 @@
 <?php
 session_start();
 
-use crazycharlyday\controller\BesoinController;
 use crazycharlyday\controller\CompteController;
 use crazycharlyday\vue\VueAccueil;
 use crazycharlyday\vue\VueMembres;
@@ -19,10 +18,7 @@ $app->get('/', function () {
     $vueIndex->render(1);
 })->setName("Menu");
 
-$app->get('/membres', function () {
-  $vueIndex = new VueMembres();
-  $vueIndex->render(1);
-})->setName("Membres");
+
 
 $app->get('/connect', function () {
     $cCont = new CompteController();
@@ -38,6 +34,16 @@ $app->get('/besoin', function () {
     $cCont = new BesoinController();
     $cCont->showAll();
 })->setName('besoin');
+
+$app->get('/membres', function() {
+   $cont = new \crazycharlyday\controller\ControllerMembres();
+   $cont->getMembres();
+});
+
+$app->get('/membre/:id', function ($id) {
+    $cont = new \crazycharlyday\controller\ControllerMembres();
+    $cont->getMembre($id);
+});
 
 $db = new DB();
 $db->addConnection(parse_ini_file("src/conf/conf.ini"));
