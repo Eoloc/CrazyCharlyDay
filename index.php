@@ -40,7 +40,7 @@ $app->get('/membres', function() {
    $cont->getMembres();
 });
 
-$app->get('/membre/:id', function ($id) {
+$app->get('/membres/:id', function ($id) {
     $cont = new \crazycharlyday\controller\ControllerMembres();
     $cont->getMembre($id);
 });

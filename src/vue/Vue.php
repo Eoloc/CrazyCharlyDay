@@ -21,10 +21,10 @@ abstract class Vue
   <title>GEG - Gestion</title>
 
   <!-- Bootstrap core CSS -->
-  <link href=\"vendor/bootstrap/css/bootstrap.min.css\" rel=\"stylesheet\">
+  <link href=\"/vendor/bootstrap/css/bootstrap.min.css\" rel=\"stylesheet\">
 
   <!-- Custom styles for this template -->
-  <link href=\"css/simple-sidebar.css\" rel=\"stylesheet\">
+  <link href=\"/css/simple-sidebar.css\" rel=\"stylesheet\">
 
     </head>";
 
@@ -106,14 +106,14 @@ abstract class Vue
   <!-- /#wrapper -->
 
   <!-- Bootstrap core JavaScript -->
-  <script src=\"vendor/jquery/jquery.min.js\"></script>
-  <script src=\"vendor/bootstrap/js/bootstrap.bundle.min.js\"></script>
+  <script src=\"/vendor/jquery/jquery.min.js\"></script>
+  <script src=\"/vendor/bootstrap/js/bootstrap.bundle.min.js\"></script>
 
 
   </body>
-  <script src=\"vendor/jquery/jquery.min.js\"></script>
-  <script src=\"vendor/bootstrap/js/bootstrap.bundle.min.js\"></script>
-  <script type=\"module\"  src='js/index.js'></script>
+  <script src=\"/vendor/jquery/jquery.min.js\"></script>
+  <script src=\"/vendor/bootstrap/js/bootstrap.bundle.min.js\"></script>
+  <script type=\"module\"  src='/js/index.js'></script>
 </body>
 
 </html>";
