@@ -3,7 +3,7 @@
 <?php
 session_start();
 
-use crazycharlyday\controllers\CompteController;
+use crazycharlyday\controller\CompteController;
 use crazycharlyday\vue\VueAccueil;
 use crazycharlyday\vue\VueMembres;
 use Illuminate\Database\Capsule\Manager as DB;
