@@ -11,4 +11,8 @@ class Besoin extends Model{
     public function Creneau(){
         return $this->belongsTo("crazycharlyday\model\creneau",'idcreneau' );
     }
+
+    public function Role(){
+        return $this->belongsTo("crazycharlyday\model\role", 'idrole');
+    }
 }
