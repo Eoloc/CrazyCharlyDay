@@ -24,7 +24,7 @@ abstract class Vue
   <!-- Custom styles for this template -->
   <link href=\"css/simple-sidebar.css\" rel=\"stylesheet\">
 
-</head>";
+    </head>";
 
     }
 
@@ -83,12 +83,17 @@ abstract class Vue
             </li>
           </ul>
         </div>
-      </nav>
+      </nav>";
+    }
 
-      <div class=\"container-fluid\">
-        </div>
-    </div>
-    <!-- /#page-content-wrapper -->
+    protected final function rendufooter(){
+
+
+  return "
+  <div class=\"container-fluid\">
+  </div>
+  </div>
+  <!-- /#page-content-wrapper -->
 
   </div>
   <!-- /#wrapper -->
@@ -98,15 +103,7 @@ abstract class Vue
   <script src=\"vendor/bootstrap/js/bootstrap.bundle.min.js\"></script>
 
 
-</body>
-    ";
-
-    }
-
-    protected final function rendufooter(){
-
-
-  return "<!-- Bootstrap core JavaScript -->
+  </body>
   <script src=\"vendor/jquery/jquery.min.js\"></script>
   <script src=\"vendor/bootstrap/js/bootstrap.bundle.min.js\"></script>
   <script type=\"module\"  src='js/index.js'></script>

@@ -56,21 +56,26 @@ class VueMembres extends Vue
         $text = "";
 
         foreach ($membres as $user) {
-            $text .= "<div>$user->nom</div>";
-            $text .= "<div>$user->prenom</div>";
-            $text .= "<div>$user->mail</div>";
-            $text .= "<div>$user->tel</div>";
-            $text .= "<div>$user->nombreAbs</div>";
-            $text .= "<div>$user->permanence</div>";
-            $text .= "<div>$user->statut</div>";
+            $text .= "
+            <div class=\"card\" style=\"width: 18rem;\">
+            <div class=\"card-body\">
+                <h5 class=\"card-title\">$user->nom $user->prenom</h5>
+                <p class=\"card-text\">Mail : $user->mail</p>
+                <p class=\"card-text\">Telephone : $user->tel</p>
+                <p class=\"card-text\">Absences : $user->nombreAbs</p>
+                <p class=\"card-text\">Permanances : $user->permanence</p>
+                <p class=\"card-text\">Statut : $user->statut</p>
+                <a href=\"#\" class=\"btn btn-primary\">Profil</a>
+            </div>
+            </div>";
         }
 
         return <<<END
         <nav class="navbar navbar-light bg-light">
-        <form class="form-inline">
-            <input class="form-control mr-sm-2" type="search" placeholder="Nom" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Chercher</button>
-        </form>
+            <form class="form-inline">
+                <input class="form-control mr-sm-2" type="search" placeholder="Nom" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Chercher</button>
+            </form>
         </nav>
         <div>
         $text
