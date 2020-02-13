@@ -1,6 +1,8 @@
 <?php
 namespace crazycharlyday\vue;
 
+include '../date.php';
+
 class VueCreneau extends Vue
 {
     private $list;
@@ -20,12 +22,20 @@ class VueCreneau extends Vue
                 $cont = $this->formulaireCreneau();
                 break;
             }
+            case 'SINGLE_VIEW' : {
+                $cont = $this->singleView();
+                break;
+            }
         }
         $head = parent::renduTitre();
         $menu = parent::renduMenu();
         $foot = parent::rendufooter();
 
         echo $head . $menu . $cont . $foot;
+    }
+
+    public function singleView(){
+        echo $this->list;
     }
 
     public function listView(){
@@ -38,7 +48,7 @@ class VueCreneau extends Vue
             $heuref = $value['heurefin'];
             $html .= <<< EOF
     <tr>
-        <td>Date du creneau {calc_date($semaine,$jour)}</td>
+        <td>Date du creneau {calc_date('2020-01-20',$semaine,$jour,0)}</td>
         <td>Heure de debut : $heured</td>
         <td>Heure de fin : $heuref</td>
     </tr>
@@ -52,7 +62,7 @@ EOF;
 
     public function formulaireCreneau(){
         $html = <<< EOF
-<form class="form-horizontal">
+<form class="form-creneau" method="POST" action=../../index.php/ajoutercreneau>
 <fieldset>
 
 <!-- Form Name -->
@@ -62,7 +72,7 @@ EOF;
     <div class="form-group">
         <label class="col-md-4 control-label" for="">Jour</label>  
         <div class="col-md-4">
-        <input class="form-control input-md" type="text" placeholder="">
+        <input class="form-control input-md" type="text" placeholder="" name="jour">
         </div>
     </div>
 
@@ -70,7 +80,7 @@ EOF;
     <div class="form-group">
         <label class="col-md-4 control-label" for="">Semaine</label>  
         <div class="col-md-4">
-        <input class="form-control input-md" type="text" placeholder="">
+        <input class="form-control input-md" type="text" placeholder="" name="semaine">
         </div>
     </div>
 
@@ -78,7 +88,7 @@ EOF;
     <div class="form-group">
         <label class="col-md-4 control-label" for="">Heure de départ</label>  
         <div class="col-md-4">
-        <input class="form-control input-md" type="text" placeholder="">
+        <input class="form-control input-md" type="text" placeholder="" name="heuredep">
         </div>
     </div>
 
@@ -86,7 +96,7 @@ EOF;
     <div class="form-group">
         <label class="col-md-4 control-label" for="textinput">Heure de fin</label>  
         <div class="col-md-4">
-        <input name="textinput" class="form-control input-md" id="textinput" type="text" placeholder="">
+        <input name="textinput" class="form-control input-md" id="textinput" type="text" placeholder="" name="heurefin">
         </div>
     </div>
     

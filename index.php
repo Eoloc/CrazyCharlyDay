@@ -59,9 +59,14 @@ $app->get('/creneaux', function () {
     $cont->listCreneau();
 });
 
-$app->get('/ajoutcreneaux', function () {
+$app->get('/formcreneaux', function () {
     $cont = new \crazycharlyday\controller\ControllerCreneau();
     $cont->seeFormCrea();
+});
+
+$app->get('/ajoutcreneau', function () {
+    $cont = new \crazycharlyday\controller\ControllerCreneau();
+    $cont->ajouterCreneau($_POST['jour'], $_POST['semaine'], $_POST['heuredep'], $_POST['heurefin']);
 });
 
 $app->get('/creabesoin', function () {

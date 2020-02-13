@@ -17,11 +17,10 @@ class Creneau extends Model
     protected $primarykey = 'idcreneau';
     public $timestamps = false;
 
-    function nouveauCreneau($jour, $semaine, $cycle, $heuredeb, $heurefin, $activation){
+    function nouveauCreneau($jour, $semaine, $heuredeb, $heurefin, ...$activation){
         $c = new Creneau();
         $c->jour = $jour;
         $c->semaine = $semaine;
-        $c->cycle = $cycle;
         $c->heuredeb = $heuredeb;
         $c->heurefin = $heurefin;
         $c->activation = $activation;
@@ -29,8 +28,11 @@ class Creneau extends Model
         $c->save();
     }
 
+    function byId($id){
+        return Creneau::where('idcreneau', '=',$id)->get();
+    }
+
     function listeCreneaux(){
-        $c = Creneau::all();
-        return $c;
+        return Creneau::all();
     }
 }

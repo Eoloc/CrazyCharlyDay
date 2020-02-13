@@ -32,4 +32,18 @@ class ControllerCreneau
         $v = new VueCreneau();
         $v->render('FORM');
     }
+
+    public function ajouterCreneau($j, $s, $hd, $hf){
+        $m = new Creneau();
+        $m->nouveauCreneau($j, $s, $hd, $hf);
+        $this->listCreneau();
+    }
+
+    public function creneauParId($id){
+        $c = new Creneau();
+        $c->byId($id);
+
+        $v = new VueCreneau();
+        $v->render('SINGLE_VIEW');
+    }
 }
