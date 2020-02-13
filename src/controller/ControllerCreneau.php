@@ -5,7 +5,6 @@ namespace crazycharlyday\controller;
 
 use crazycharlyday\Model\Creneau;
 use crazycharlyday\Vue\VueCreneau;
-use crazycharlyday\Vue\VueMembres;
 
 class ControllerCreneau
 {
@@ -16,15 +15,14 @@ class ControllerCreneau
 
     public function getCreneau($id){
         $creneau = Creneau::where('idcreneau', '=', $id)->first();
-        $vue = new VueMembres($creneau);
-        //$vue->render(VueMembres::Creneau);
+        $vue = new VueCreneau($creneau);
+        $vue->render('SINGLE_VIEW');
     }
 
     public function listCreneau(){
-        $m = new Creneau();
-        $liste = $m->listeCreneaux();
+        $m = Creneau::all();
 
-        $v = new VueCreneau($liste);
+        $v = new VueCreneau($m);
         $v->render('LIST');
     }
 
@@ -34,16 +32,12 @@ class ControllerCreneau
     }
 
     public function ajouterCreneau($j, $s, $hd, $hf){
-        $m = new Creneau();
-        $m->nouveauCreneau($j, $s, $hd, $hf);
-        $this->listCreneau();
-    }
-
-    public function creneauParId($id){
         $c = new Creneau();
-        $c->byId($id);
+        $c->jour = $j;
+        $c->semaine = $s;
+        $c->heuredeb = $hd;
+        $c->heurefin = $hf;
 
-        $v = new VueCreneau();
-        $v->render('SINGLE_VIEW');
+        $c->save();
     }
 }
