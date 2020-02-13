@@ -17,7 +17,8 @@ class ControllerMembres
     {}
 
     public function getMembres(){
-        $membre = User::OrderBy('iduser', 'asc')->get();
+        $membre = User::get();
+
         $vue = new VueMembres($membre);
         $vue->render(VueMembres::LISTE);
     }

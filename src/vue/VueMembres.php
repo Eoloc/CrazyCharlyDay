@@ -33,9 +33,10 @@ class VueMembres extends Vue
                 $cont .= $this->renderListeAdv();
                 break;
             case self::MEMBRE:
-                $cont .=$this->renderMembre();
+                //$cont .=$this->renderMembre();
                 break;
         }
+
 
         $html = <<<END
         $head
@@ -50,8 +51,8 @@ class VueMembres extends Vue
     }
 
     private function renderListe(){
-        $tableau = $this->tableau;
-        $membres = $tableau->User;
+        $membres = $this->tableau;
+
         $text = "";
 
         foreach ($membres as $user) {
