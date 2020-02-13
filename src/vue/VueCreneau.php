@@ -8,9 +8,9 @@ class VueCreneau extends Vue
 {
     private $list;
 
-    function __construct(...$l)
-    {
-        $this->list = $l;
+    function __construct(...$l){
+        $this->liste = $l;
+        $this->date = new CalcDate();
     }
 
     public function render($sel)
@@ -54,7 +54,7 @@ EOF;
     {
         $html = "<div class = creneaux>
 <table>";
-        foreach ($this->list as $key => $value) {
+        foreach ($this->liste as $key => $value){
             $jour = $value['jour'];
             $semaine = $value['semaine'];
             $heured = $value['heuredeb'];
