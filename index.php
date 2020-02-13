@@ -27,6 +27,11 @@ $app->get('/', function () {
 })->setName("Menu");
 
 
+$app->get('/membres', function () {
+  $vueIndex = new VueMembres();
+  $vueIndex->render(1);
+})->setName("Membres");
+
 $db = new DB();
 $db->addConnection(parse_ini_file("src/conf/conf.ini"));
 $db->setAsGlobal();
