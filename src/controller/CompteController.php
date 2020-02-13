@@ -6,7 +6,7 @@ namespace crazycharlyday\controller;
 use crazycharlyday\vue\VueCompte;
 use crazycharlyday\model\Authentication;
 use crazycharlyday\exception\AuthException;
-use mywishlist\model\User;
+
 use Slim\Slim;
 
 
@@ -24,7 +24,7 @@ class CompteController
             $vueCompte->render(VueCompte::CREA);
         } else {
             $slim = Slim::getInstance();
-            $slim->redirect($slim->urlFor("compteco"), 301);
+            $slim->redirect($slim->urlFor("Menu"), 301);
         }
     }
 
@@ -46,7 +46,7 @@ class CompteController
             if ($pass === $passC) {
                 try {
                     Authentication::createUser($nom, $prenom,$email, $tel, $log, $pass, $statut );
-                    $slim->redirect($slim->urlFor("compteco"), 301);
+                    $slim->redirect($slim->urlFor("Menu"), 301);
                 } catch (AuthException $e) {
                     setcookie("Error", $e->getMessage(), time() + 10);
                     $slim->redirect($slim->urlFor("createcompte"), 302);
@@ -56,7 +56,7 @@ class CompteController
                 $slim->redirect($slim->urlFor("createcompte"), 302);
             }
         } else {
-            $slim->redirect($slim->urlFor("compteco"), 301);
+            $slim->redirect($slim->urlFor("Menu"), 301);
         }
     }
 
@@ -71,7 +71,7 @@ class CompteController
             $v->render(VueCompte::LOGIN);
         } else {
             $slim = Slim::getInstance();
-            $slim->redirect($slim->urlFor("compteco"), 301);
+            $slim->redirect($slim->urlFor("Menu"), 301);
         }
     }
 
@@ -81,9 +81,9 @@ class CompteController
             $log = filter_var($_POST['login'], FILTER_SANITIZE_SPECIAL_CHARS);
             $pass = filter_var($_POST['password'], FILTER_SANITIZE_SPECIAL_CHARS);
             try {
-                \mywishlist\model\Authentication::authenticate($log, $pass);
-                $slim->redirect($slim->urlFor("compteco"), 301);
-            } catch (\mywishlist\exception\AuthException $e) {
+                \crazycharlyday\model\Authentication::authenticate($log, $pass);
+                $slim->redirect($slim->urlFor("Menu"), 301);
+            } catch (\crazycharlyday\exception\AuthException $e) {
                 setcookie("Error", $e->getMessage(), time() + 10);
                 $slim->redirect($slim->urlFor("connect"), 302);
             }
