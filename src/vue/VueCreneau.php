@@ -5,8 +5,8 @@ class VueCreneau extends Vue
 {
     private $list;
 
-    function __construct($list){
-        $this->list = $list;
+    function __construct($l){
+        $this->list = $l;
     }
 
     public function render($sel)
@@ -59,41 +59,36 @@ EOF;
 <legend>Ajout d'un creneau</legend>
 
 <!-- Text input-->
-<div class="form-group">
-  <label class="col-md-4 control-label" for="">Jour</label>  
-  <div class="col-md-4">
-  <input class="form-control input-md" type="text" placeholder="">
-    
-  </div>
-</div>
+    <div class="form-group">
+        <label class="col-md-4 control-label" for="">Jour</label>  
+        <div class="col-md-4">
+        <input class="form-control input-md" type="text" placeholder="">
+        </div>
+    </div>
 
 <!-- Text input-->
-<div class="form-group">
-  <label class="col-md-4 control-label" for="">Semaine</label>  
-  <div class="col-md-4">
-  <input class="form-control input-md" type="text" placeholder="">
-    
-  </div>
-</div>
+    <div class="form-group">
+        <label class="col-md-4 control-label" for="">Semaine</label>  
+        <div class="col-md-4">
+        <input class="form-control input-md" type="text" placeholder="">
+        </div>
+    </div>
 
 <!-- Text input-->
-<div class="form-group">
-  <label class="col-md-4 control-label" for="">Heure de départ</label>  
-  <div class="col-md-4">
-  <input class="form-control input-md" type="text" placeholder="">
-    
-  </div>
-</div>
+    <div class="form-group">
+        <label class="col-md-4 control-label" for="">Heure de départ</label>  
+        <div class="col-md-4">
+        <input class="form-control input-md" type="text" placeholder="">
+        </div>
+    </div>
 
 <!-- Text input-->
-<div class="form-group">
-  <label class="col-md-4 control-label" for="textinput">Heure de fin</label>  
-  <div class="col-md-4">
-  <input name="textinput" class="form-control input-md" id="textinput" type="text" placeholder="">
-    
-  </div>
-</div>
-
+    <div class="form-group">
+        <label class="col-md-4 control-label" for="textinput">Heure de fin</label>  
+        <div class="col-md-4">
+        <input name="textinput" class="form-control input-md" id="textinput" type="text" placeholder="">
+        </div>
+    </div>
 </fieldset>
 </form>
 EOF;
