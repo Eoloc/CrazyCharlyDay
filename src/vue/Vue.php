@@ -80,9 +80,6 @@ abstract class Vue
                 Options
               </a>
               $url
-              <li class=\"nav-item active\">
-              <a class=\"nav-link\" href=\"createcompte\">COMPTE <span class=\"sr-only\">(current)</span></a>
-            </li>
               <div class=\"dropdown-menu dropdown-menu-right\" aria-labelledby=\"navbarDropdown\">
                 <a class=\"dropdown-item\" href=\"#\">...</a>
                 <a class=\"dropdown-item\" href=\"#\">...</a>
