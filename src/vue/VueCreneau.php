@@ -89,6 +89,10 @@ EOF;
         <input name="textinput" class="form-control input-md" id="textinput" type="text" placeholder="">
         </div>
     </div>
+    
+    <div class="button-ajout">
+        <input type=submit value='Ajouter creneau'</input>
+    </div>
 </fieldset>
 </form>
 EOF;
