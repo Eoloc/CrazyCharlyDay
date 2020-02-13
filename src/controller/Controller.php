@@ -1,7 +1,7 @@
 <?php
 
 
-namespace crazycharlyday\controllers;
+namespace crazycharlyday\controller;
 
 use Slim\App;
 
@@ -10,7 +10,7 @@ class  Controller
     protected $app;
 
     /**
-     * ItemController constructor.
+     * Controller constructor.
      * @param $a App Objet slim injecté dans le contoleur
      */
     public function __construct($a = NULL)
