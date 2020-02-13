@@ -31,10 +31,10 @@ $app->post('/connect', function () {
     $cCont->auth();
 });
 
-$app->get('/besoin', function () {
+$app->get('/besoins', function () {
     $cCont = new BesoinController();
     $cCont->showAll();
-})->setName('besoin');
+})->setName('besoins');
 
 $app->get('/membres', function() {
    $cont = new \crazycharlyday\controller\ControllerMembres();
