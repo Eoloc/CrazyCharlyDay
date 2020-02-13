@@ -48,13 +48,13 @@ END;
     $menu = parent::renduMenu();
     $foot = parent::rendufooter();
     $html = <<<END
-$head
-$menu
-<div class="container">
- $cont
- </div>
-$foot
-END;
+    $head
+    $menu
+    <div class="container">
+    $cont
+    </div>
+    $foot
+    END;
     echo $html;
   }
 

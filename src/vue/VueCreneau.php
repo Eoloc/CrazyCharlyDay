@@ -1,33 +1,33 @@
 <?php
+
 namespace crazycharlyday\vue;
 
-use crazycharlyday\date\CalcDate;
+
 
 class VueCreneau extends Vue
 {
-    private $liste;
-    private $date;
+    private $list;
 
-    function __construct(...$l){
-        $this->liste = $l;
-        $date = new CalcDate();
+    function __construct(...$l)
+    {
+        $this->list = $l;
     }
 
     public function render($sel)
     {
-        switch($sel){
-            case 'LIST' : {
-                $cont = $this->listView();
-                break;
-            }
-            case 'FORM' : {
-                $cont = $this->formulaireCreneau();
-                break;
-            }
-            case 'SINGLE_VIEW' : {
-                $cont = $this->singleView();
-                break;
-            }
+        switch ($sel) {
+            case 'LIST': {
+                    $cont = $this->listView();
+                    break;
+                }
+            case 'FORM': {
+                    $cont = $this->formulaireCreneau();
+                    break;
+                }
+            case 'SINGLE_VIEW': {
+                    $cont = $this->singleView();
+                    break;
+                }
         }
         $head = parent::renduTitre();
         $menu = parent::renduMenu();
@@ -36,43 +36,44 @@ class VueCreneau extends Vue
         echo $head . $menu . $cont . $foot;
     }
 
-    public function singleView(){
+    public function singleView()
+    {
         return <<< EOF
 <table>
     <tr>
-        <td>{$this->liste['jour']}</td>
-        <td>{$this->liste['semaine']}</td>
-        <td>{$this->liste['heuredeb']}</td>
-        <td>{$this->liste['heurefin']}</td>
+        <td>$this->list['jour']</td>
+        <td>$this->list['semaine']</td>
+        <td>$this->list['heuredeb']</td>
+        <td>$this->list['heurefin']</td>
     </tr>
 </table>
 EOF;
-
     }
 
-    public function listView(){
+    public function listView()
+    {
         $html = "<div class = creneaux>
 <table>";
-        foreach ($this->list as $key => $value){
+        foreach ($this->list as $key => $value) {
             $jour = $value['jour'];
             $semaine = $value['semaine'];
             $heured = $value['heuredeb'];
             $heuref = $value['heurefin'];
             $html .= <<< EOF
     <tr>
-        <td>Date du creneau {$this->date->calc_date('2020-01-20',$semaine,$jour,0)}</td>
+        <td>Date du creneau {calc_date('2020-01-20',$semaine,$jour,0)}</td>
         <td>Heure de debut : $heured</td>
         <td>Heure de fin : $heuref</td>
     </tr>
 EOF;
-
         }
         $html .= '</table>
 </div>';
         return $html;
     }
 
-    public function formulaireCreneau(){
+    public function formulaireCreneau()
+    {
         $html = <<< EOF
 <form class="form-creneau" method="POST" action=../../index.php/ajoutercreneau>
 <fieldset>

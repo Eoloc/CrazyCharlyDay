@@ -14,20 +14,20 @@ class ControllerMembres
      * @param $a App Objet slim injecté dans le contoleur
      */
     public function __construct()
-    {}
+    {
+    }
 
-    public function getMembres(){
+    public function getMembres()
+    {
         $membre = User::get();
         $vue = new VueMembres($membre);
         $vue->render(VueMembres::LISTE);
     }
 
-    public function getMembre($id){
+    public function getMembre($id)
+    {
         $membre = User::where('iduser', '=', $id)->first();
         $vue = new VueMembres($membre);
         $vue->render(VueMembres::MEMBRE);
     }
-
-    
 }
-
