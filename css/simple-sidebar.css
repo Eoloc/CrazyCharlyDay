@@ -7,6 +7,20 @@ body {
   overflow-x: hidden;
 }
 
+.container {
+  max-width: 100%;
+  padding-left: 0px;
+}
+
+.cartes {
+  text-align: center;
+}
+
+.card {
+  display: inline-block;
+  margin: 5px;
+}
+
 #adminpanel {
   font-weight: bold;
   color: darkred;

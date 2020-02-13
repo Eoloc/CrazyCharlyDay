@@ -77,7 +77,7 @@ class VueMembres extends Vue
                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Chercher</button>
             </form>
         </nav>
-        <div>
+        <div class="cartes">
         $text
         </div>
 END;
