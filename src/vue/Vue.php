@@ -8,7 +8,8 @@ abstract class Vue
 {
     public abstract function render($sel);
 
-    protected final function renduTitre(){
+    protected final function renduTitre()
+    {
         return "<!DOCTYPE html>
 <html lang=\"en\">
 
@@ -32,12 +33,14 @@ abstract class Vue
     }
 
 
-    protected final function renduMenu(){
+    protected final function renduMenu()
+    {
         $slim = Slim::getInstance();
         $request = $slim->request;
         $url = $request->getRootUri() . "/connect";
         $url = $this->generateLink();
-  return "<body>
+        $boutAdmin = $this->generatePanelAdmin();
+        return "<body>
 
   <div class=\"d-flex\" id=\"wrapper\">
 
@@ -45,9 +48,7 @@ abstract class Vue
     <div class=\"bg-light border-right\" id=\"sidebar-wrapper\">
       <div class=\"sidebar-heading\">GEG Gestion </div>
       <div class=\"list-group list-group-flush\">
-      <div class=\"dropdown-divider\"></div>
-      <a id=\"adminpanel\" href=\"\#\" class=\"list-group-item list-group-item-action bg-light\">Panel Admin</a>
-      <div class=\"dropdown-divider\"></div>
+      $boutAdmin
       <a href=\"creneaux\" class=\"list-group-item list-group-item-action bg-light\">Planning</a>
       <a href=\"membres\" class=\"list-group-item list-group-item-action bg-light\">Membres</a>
       <a href=\"besoins\" class=\"list-group-item list-group-item-action bg-light\">Besoins</a>
@@ -91,10 +92,11 @@ abstract class Vue
       </nav>";
     }
 
-    protected final function rendufooter(){
+    protected final function rendufooter()
+    {
 
 
-  return "
+        return "
   <div class=\"container-fluid\">
   </div>
   </div>
@@ -118,7 +120,8 @@ abstract class Vue
     }
 
 
-    private final function generateLink() {
+    private final function generateLink()
+    {
         $slim = Slim::getInstance();
         $request = $slim->request;
         if (!array_key_exists("id", $_SESSION)) {
@@ -129,16 +132,15 @@ abstract class Vue
         } else {
             $name = $_SESSION['id']['login'];
             $t = $request->getRootUri() . '/connected';
-            $user = User::where("login", "=",$name )->first();
-            ;
+            $user = User::where("login", "=", $name)->first();
             $url = "<li class=\"nav-item active\">
               <a class=\"nav-link\" href=\"/\">Bienvenue $name<span class=\"sr-only\">(current)</span></a>
               </li>
               <li class=\"nav-item\">
               <button id=\"deconnexion\" class=\"btn btn-success\" id=\"menu-toggle\">Déconnexion</button>
             </li>";
-            if( $user->statut == "admin"){
-                $url .="<li class=\"nav-item\">
+            if ($user->statut == "admin") {
+                $url .= "<li class=\"nav-item\">
               <button id=\"creerCompte\" class=\"btn btn-success\" id=\"menu-toggle\">Créer un compte</button>
             </li>";
             }
@@ -146,7 +148,23 @@ abstract class Vue
         return $url;
     }
 
-}
+    private final function generatePanelAdmin()
+    {
+        $slim = Slim::getInstance();
+        $request = $slim->request;
+        $url = "";
+        if (array_key_exists("id", $_SESSION)) {
+            $name = $_SESSION['id']['login'];
+            $user = User::where("login", "=", $name)->first();
+            if ($user->statut == "admin") {
+                $url = "<div class=\"dropdown-divider\"></div>
+                <a id=\"adminpanel\" href=\"\#\" class=\"list-group-item list-group-item-action bg-light\">Panel Admin</a>
+                <div class=\"dropdown-divider\"></div>";
+            }
+            return $url;
+        }
 
+    }
+}
 
 ?>
