@@ -60,6 +60,7 @@ EOF;
         $html = "
     <div class = creneaux>
         <table>";
+        return $html . implode($this->liste);
         foreach ($this->liste as $key => $value){
             $dateObj = $this->date->calc_date('2020-01-20', $value[$key]['semaine'], $value[0]['jour'],0);
             $jour = $dateObj->jour_no;
