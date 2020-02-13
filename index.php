@@ -3,7 +3,7 @@
 <?php
 session_start();
 
-use crazycharlyday\vue\VueAccueil;
+use crazycharlyday\view\VueAccueil;
 use Illuminate\Database\Capsule\Manager as DB;
 use Slim\App;
 use \Psr\Http\Message\ServerRequestInterface as Request;
