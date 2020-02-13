@@ -2,6 +2,7 @@
 
 
 namespace crazycharlyday\controller;
+use crazycharlyday\vue\VueMembres;
 use \Psr\Http\Message\ServerRequestInterface as Request;
 use crazycharlyday\model\Besoin;
 use crazycharlyday\vue\VueBesoin;
@@ -14,10 +15,10 @@ class BesoinController
 {
 
     public function showAll(){
-        $b = Besoin::select('*')->get();
-        $arr = json_decode($b);
-        $vue = new VueBesoin($arr);
-        $vue->vue('showAll');
+        $b = Besoin::all();
+        $vue = new VueMembres($b);
+        $vue->render(VueMembres::BESOINS);
+
     }
 
 }
