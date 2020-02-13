@@ -150,10 +150,10 @@ FOREIGN KEY (iduser) REFERENCES user(iduser)
 
 );
 
-INSERT INTO `inscription` (`iduser`) VALUES
-(5),
-(1),
-(8);
+INSERT INTO `inscription` (`idbesoin`,`iduser`) VALUES
+(1, 5),
+(2, 1),
+(3, 8);
 
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
