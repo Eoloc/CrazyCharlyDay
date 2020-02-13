@@ -2,10 +2,13 @@
 
 
 namespace crazycharlyday\controller;
+
 use crazycharlyday\vue\VueMembres;
 use \Psr\Http\Message\ServerRequestInterface as Request;
 use crazycharlyday\model\Besoin;
 use crazycharlyday\vue\VueBesoin;
+
+use Slim\Slim;
 
 /**
  * Classe du Controller de Besoin.
@@ -14,14 +17,15 @@ use crazycharlyday\vue\VueBesoin;
 class BesoinController
 {
 
-    public function showAll(){
+    public function showAll()
+    {
         $b = Besoin::all();
         $vue = new VueMembres($b);
         $vue->render(VueMembres::BESOINS);
-
     }
 
-    public function formCrea(){
+    public function formCrea()
+    {
         $msg = "";
         if (isset($_COOKIE['Error'])) {
             $msg = $_COOKIE['Error'];
@@ -31,17 +35,17 @@ class BesoinController
         $vue->render(VueBesoin::CREABESOINS);
     }
 
-    private function postCreaForm() {
+    private function postCreaForm()
+    {
         $slim = Slim::getInstance();
-        if (isset($_POST['selectRole']) && $_POST['selectRole'] !== "" && isset($_POST['selectCreneau']) && $_POST['selectCreneau'] !== ""){
+        if (isset($_POST['selectRole']) && $_POST['selectRole'] !== "" && isset($_POST['selectCreneau']) && $_POST['selectCreneau'] !== "") {
             $besoin = new Besoin();
             //$besoin->idrole =
 
 
-        }else {
+        } else {
             setcookie("Error", "Il y a une erreur dans le formulaire", time() + 10);
             $slim->redirect($slim->urlFor("creabesoins"), 302);
         }
     }
-
 }

@@ -1,4 +1,5 @@
 <?php
+
 namespace crazycharlyday\vue;
 
 class VueMembres extends Vue
@@ -15,7 +16,8 @@ class VueMembres extends Vue
     protected $tableau;
 
 
-    public function __construct($tab) {
+    public function __construct($tab)
+    {
         $this->tableau = $tab;
     }
 
@@ -26,7 +28,7 @@ class VueMembres extends Vue
         $menu = parent::renduMenu();
         $foot = parent::rendufooter();
 
-        switch($sel){
+        switch ($sel) {
             case self::LISTE:
                 $cont .= $this->renderListe();
                 break;
@@ -34,10 +36,10 @@ class VueMembres extends Vue
                 $cont .= $this->renderListeAdv();
                 break;
             case self::MEMBRE:
-                $cont .=$this->renderMembre();
+                $cont .= $this->renderMembre();
                 break;
             case self::BESOINS:
-                $cont .=$this->renderBesoins();
+                $cont .= $this->renderBesoins();
                 break;
         }
 
@@ -54,7 +56,12 @@ class VueMembres extends Vue
         echo $html;
     }
 
-    private function renderListe(){
+    private function renderListeAdv()
+    {
+    }
+
+    private function renderListe()
+    {
         $membres = $this->tableau;
 
         $text = "";
@@ -87,16 +94,18 @@ class VueMembres extends Vue
 END;
     }
 
-    private function renderMembre() {
-       $tableau = $this->tableau;
+    private function renderMembre()
+    {
+        $tableau = $this->tableau;
 
-       $value = "<p>$tableau->nom</p>";
-       $value .= "<p> $tableau->prenom</p>";
+        $value = "<p>$tableau->nom</p>";
+        $value .= "<p> $tableau->prenom</p>";
 
-       return $value;
+        return $value;
     }
 
-    private function renderBesoins() {
+    private function renderBesoins()
+    {
         $besoins = $this->tableau;
         //$creneaux = $besoins->Creneau;
         $text = "";
@@ -122,11 +131,5 @@ END;
         $text
         </div>
 END;
-
     }
-
-
 }
-?>
-
-

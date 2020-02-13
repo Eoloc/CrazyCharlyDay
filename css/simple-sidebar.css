@@ -26,6 +26,10 @@ body {
   color: darkred;
 }
 
+.formconnexion {
+  margin: 15px;
+}
+
 #sidebar-wrapper {
   min-height: 100vh;
   margin-left: -15rem;
