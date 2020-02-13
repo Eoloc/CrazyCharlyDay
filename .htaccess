@@ -2,7 +2,7 @@ RewriteEngine On
 #
 # RewriteBase indispensable sur webetu :
 
-RewriteBase /localhost/crazycharlyday/
+RewriteBase /crazycharlyday/
 
 #
 # Pour interdire l'accès aux répertoires contenant du code
@@ -15,4 +15,5 @@ RewriteRule ^vendor(/.*|)$ - [NC,F]
 
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME} !-f
-RewriteRule ^ index.php [QSA,L]
+RewriteRule ^(.*)$ index.php?url=$1 [QSA,L]
+
