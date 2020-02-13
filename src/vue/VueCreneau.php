@@ -30,11 +30,11 @@ class VueCreneau extends Vue
             $heured = $value['heuredeb'];
             $heuref = $value['heurefin'];
             $html .= <<< EOF
-    <td>
-        <tr>Date du creneau {calc_date($semaine,$jour)}</tr>
-        <tr>Heure de debut : $heured</tr>
-        <tr>Heur de fin : $heuref</tr>
-    </td>
+    <tr>
+        <td>Date du creneau {calc_date($semaine,$jour)}</td>
+        <td>Heure de debut : $heured</td>
+        <td>Heure de fin : $heuref</td>
+    </tr>
 EOF;
 
         }
