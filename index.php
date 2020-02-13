@@ -51,6 +51,11 @@ $app->get('/creneaux', function () {
     $cont->listCreneau();
 });
 
+$app->get('/ajoutcreneaux', function () {
+    $cont = new \crazycharlyday\controller\ControllerCreneau();
+    $cont->seeFormCrea();
+});
+
 $db = new DB();
 $db->addConnection(parse_ini_file("src/conf/conf.ini"));
 $db->setAsGlobal();
