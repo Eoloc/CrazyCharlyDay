@@ -3,7 +3,7 @@
 
 namespace crazycharlyday\controllers;
 
-use Slim\App;
+use Slim\Slim;
 
 class  Controller
 {
