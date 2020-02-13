@@ -69,7 +69,7 @@ class VueMembres extends Vue
                 <p class=\"card-text\">Absences : $user->nombreAbs</p>
                 <p class=\"card-text\">Permanances : $user->permanence</p>
                 <p class=\"card-text\">Statut : $user->statut</p>
-                <a href=\"#\" class=\"btn btn-primary\">Profil</a>
+                <a href=\"membre/$user->iduser\" class=\"btn btn-primary\">Profil</a>
             </div>
             </div>";
         }
@@ -90,7 +90,8 @@ END;
     private function renderMembre() {
        $tableau = $this->tableau;
 
-       $value = "<div>$tableau->nom</div>";
+       $value = "<p>$tableau->nom</p>";
+       $value .= "<p> $tableau->prenom</p>";
 
        return $value;
     }
