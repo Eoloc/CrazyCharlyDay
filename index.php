@@ -62,7 +62,7 @@ $app->post("/createcompte", function () {
 
 $app->get('/creneaux', function () {
     $cont = new \crazycharlyday\controller\ControllerCreneau();
-    $cont->listCreneau();
+    $cont->affPlanning();
 });
 
 $app->get('/creneau/:id', function ($id) {

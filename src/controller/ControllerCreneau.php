@@ -19,8 +19,12 @@ class ControllerCreneau
         $vue->render('SINGLE_VIEW');
     }
 
-    public function listCreneau(){
-        $m = Creneau::all();
+    public function affPlanning(){
+        $m = Creneau::join('besoin', 'creneau.idcreneau', '=', 'besoin.idcreneau')
+            ->join('inscription','besoin.idbesoin', '=', 'inscription.idbesoin')
+            ->select('*')
+            ->where('inscription.iduser', '<>', '')
+            ->get();
 
         $v = new VueCreneau($m);
         $v->render('LIST');
