@@ -5,6 +5,7 @@ namespace crazycharlyday\vue;
 
 use crazycharlyday\model\Besoin;
 use crazycharlyday\model\Creneau;
+use crazycharlyday\model\Role;
 
 /**
  * Affichage des listes
@@ -48,10 +49,10 @@ class VueBesoin extends Vue
 
     private function renderCreabesoins() {
         $text = "";
+        $roles = Role::all();
         $creneaux = Creneau::all();
 
-
-        return <<<END
+        $text .= <<<END
         <form class="form-horizontal">
                 <fieldset>
                 
@@ -63,9 +64,16 @@ class VueBesoin extends Vue
                   <label class="col-md-4 control-label" for="selectRole">Rôle</label>
                   <div class="col-md-4">
                     <select id="selectRole" name="selectRole" class="form-control">
-                      <option value="1">Caissier</option>
-                      <option value="2">Gestionnaire de vrac</option>
-                      <option value="3">Chargé d'accueil</option>
+END;
+
+        foreach($roles as $role){
+
+            $text .= "<option value=$role->idrole>$role->label</option>";
+
+        };
+
+        $text .=
+        <<<END
                     </select>
                   </div>
                 </div>
@@ -75,41 +83,63 @@ class VueBesoin extends Vue
                   <label class="col-md-4 control-label" for="selectCreneau">Créneau</label>
                   <div class="col-md-4">
                     <select id="selectCreneau" name="selectCreneau" class="form-control">
-                      <option value="1">Option one</option>
-                      <option value="2">Option two</option>
+                      
+  END;
+        foreach($creneaux as $creneau){
+
+            $text .= "<option value=$creneau->idcreneau>$creneau->jour</option>";
+
+        };
+
+        $text .=
+        <<<END
                     </select>
                   </div>
                 </div>
+                
+                <!-- Button -->
+                <div class="form-group">
+                <label class="col-md-4 control-label" for="submit"></label>
+  <div class="col-md-4">
+    <button id="submit" name="submit" class="btn btn-primary">Valider</button>
+  </div>
+</div>
                 
                 </fieldset>
                 </form>
 END;
 
+
+        return $text;
+
     }
 
 
 
 
 
-   /* public function vue(string $vue)
-    {
-        switch ($vue) {
-            case 'showAll':
-                $this->showAll();
-                break;
-            default:
-                break;
-        }
-    }
+    /* public function vue(string $vue)
+     {
+         switch ($vue) {
+             case 'showAll':
+                 $this->showAll();
+                 break;
+             default:
+                 break;
+         }
+     }
 
-    /**
-     * Affiche toutes les listes
+     /**
+      * Affiche toutes les listes
+      */
+    /*
+     private function showAll()
+     {
+         $this->content.= "coucou";
+     }*/
+
+    /*
+     *
+                      }
      */
-   /*
-    private function showAll()
-    {
-        $this->content.= "coucou";
-    }*/
-
-
 }
