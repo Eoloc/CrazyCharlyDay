@@ -1,7 +1,7 @@
 <?php
 
 
-namespace crazycharlyday\controllers;
+namespace crazycharlyday\controller;
 
 use Slim\App;
 
