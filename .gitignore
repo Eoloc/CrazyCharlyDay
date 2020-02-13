@@ -1,2 +1,6 @@
 node_modules
-.idea/
+.idea
+src/conf/conf.ini
+composer.lock
+/vendor/
+composer.phar
