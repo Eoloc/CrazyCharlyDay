@@ -6,6 +6,11 @@ function lancerAffichage(e) {
         $("#membres").append(exemple);
 }
 
+function creerBesoin(e) {
+    document.location.href = "creabesoin";
+}
+
 export function init(){
     $('#membres').ready(lancerAffichage);
+    $('#submit').click(creerBesoin);
 }

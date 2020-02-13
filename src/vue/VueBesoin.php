@@ -3,6 +3,7 @@
 
 namespace crazycharlyday\vue;
 
+use crazycharlyday\date\CalcDate;
 use crazycharlyday\model\Besoin;
 use crazycharlyday\model\Creneau;
 use crazycharlyday\model\Role;
@@ -83,9 +84,10 @@ class VueBesoin extends Vue
                   <div class=\"col-md-4\">
                     <select id=\"selectCreneau\" name=\"selectCreneau\" class=\"form-control\">
                       ";
-        foreach($creneaux as $creneau){
-
-            $text .= "<option value=$creneau->idcreneau>$creneau->jour</option>";
+        $calc = new CalcDate();
+        foreach($creneaux as $key => $value){
+            $tmp=$calc->calc_date('2020-01-20',$value['semaine'] ,$value['jour'],0);
+            $text .= "<option value=$value[$key]['idcreneau']>$tmp->jour_no/$tmp->mois_no/$tmp->annee_no {$value[$key]['heuredeb']} {$value[$key]['heurefin']}</option>";
 
         };
 

@@ -5,6 +5,7 @@ namespace crazycharlyday\vue;
 use crazycharlyday\date\CalcDate;
 use crazycharlyday\model\Creneau;
 use crazycharlyday\model\Role;
+use Slim\Slim;
 
 class VueMembres extends Vue
 {
@@ -127,10 +128,12 @@ class VueMembres extends Vue
                 <h5 class=\"card-title\">{$tmp->jour_nom} de {$creneau['heuredeb']}h à  {$creneau['heurefin']}h : {$role['label']}</h5>
                 
             </div>
-            </div>";
+            </div>
+            ";
         }
 
         return "
+        
         <nav class=\"navbar navbar-light bg-light\">
             <form class=\"form-inline\">
                 <input class=\"form-control mr-sm-2\" type=\"search\" placeholder=\"Nom\" aria-label=\"Search\">
@@ -140,6 +143,14 @@ class VueMembres extends Vue
         <div>
         $text
         </div>
+                
+                <!-- Button -->
+<div class=\"form-group\">
+  <label class=\"col-md-4 control-label\" for=\"submit\"></label>
+  <div class=\"col-md-4\">
+    <button id=\"submit\" name=\"submit\" class=\"btn btn-primary\">Créer un besoin</button>
+  </div>
+</div>
         ";
     }
 }
