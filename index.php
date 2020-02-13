@@ -3,6 +3,7 @@
 <?php
 session_start();
 
+use crazycharlyday\controller\BesoinController;
 use crazycharlyday\controller\CompteController;
 use crazycharlyday\vue\VueAccueil;
 use crazycharlyday\vue\VueMembres;
@@ -48,6 +49,11 @@ $app->get('/membre/:id', function ($id) {
 $app->get('/creneaux', function () {
     $cont = new \crazycharlyday\controller\ControllerCreneau();
     $cont->listCreneau();
+});
+
+$app->get('/ajoutcreneaux', function () {
+    $cont = new \crazycharlyday\controller\ControllerCreneau();
+    $cont->seeFormCrea();
 });
 
 $db = new DB();

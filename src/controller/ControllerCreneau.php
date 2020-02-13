@@ -29,6 +29,7 @@ class ControllerCreneau
     }
 
     public function seeFormCrea() {
-
+        $v = new VueCreneau();
+        $v->render('FORM');
     }
 }
