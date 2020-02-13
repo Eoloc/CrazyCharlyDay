@@ -13,8 +13,6 @@ require_once 'vendor/autoload.php';
 
 $app = new Slim();
 
-
-
 $app->get('/', function () {
     $vueIndex = new VueAccueil();
     $vueIndex->render(1);
@@ -33,7 +31,7 @@ $app->post('/connect', function () {
 });
 
 $app->get('/besoin', function () {
-    $cCont = new besoinController();
+    $cCont = new BesoinController();
     $cCont->showAll();
 })->setName('besoin');
 
