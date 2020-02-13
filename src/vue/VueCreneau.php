@@ -38,10 +38,10 @@ class VueCreneau extends Vue
         return <<< EOF
 <table>
     <tr>
-        <td>$this->list['jour']</td>
-        <td>$this->list['semaine']</td>
-        <td>$this->list['heuredeb']</td>
-        <td>$this->list['heurefin']</td>
+        <td>{$this->list['jour']}</td>
+        <td>{$this->list['semaine']}</td>
+        <td>{$this->list['heuredeb']}</td>
+        <td>{$this->list['heurefin']}</td>
     </tr>
 </table>
 EOF;
