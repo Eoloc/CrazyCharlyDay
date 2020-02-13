@@ -98,6 +98,10 @@ session_start();
 $app = new Slim;
 
 
+$app->get('/', function () {
+    $vueIndex = new VueAccueil();
+    $vueIndex->render(1);
+})->setName("Menu");
 
 
 $db = new DB();
