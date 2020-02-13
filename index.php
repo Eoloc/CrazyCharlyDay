@@ -8,7 +8,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>GEG - Accueil</title>
+  <title>GEG - Gestion</title>
 
   <!-- Bootstrap core CSS -->
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -24,8 +24,9 @@
 
     <!-- Sidebar -->
     <div class="bg-light border-right" id="sidebar-wrapper">
-      <div class="sidebar-heading">GEG Site </div>
+      <div class="sidebar-heading">GEG Gestion</div>
       <div class="list-group list-group-flush">
+        <div class="dropdown-divider"></div>
         <a id="adminpanel" href="#" class="list-group-item list-group-item-action bg-light">Panel Admin</a>
         <div class="dropdown-divider"></div>
         <a href="#" class="list-group-item list-group-item-action bg-light">Planning</a>
