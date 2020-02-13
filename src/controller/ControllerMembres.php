@@ -18,7 +18,6 @@ class ControllerMembres
 
     public function getMembres(){
         $membre = User::get();
-
         $vue = new VueMembres($membre);
         $vue->render(VueMembres::LISTE);
     }
@@ -26,7 +25,7 @@ class ControllerMembres
     public function getMembre($id){
         $membre = User::where('iduser', '=', $id)->first();
         $vue = new VueMembres($membre);
-        $vue->render(VueMembres::LISTE);
+        $vue->render(VueMembres::MEMBRE);
     }
 
     

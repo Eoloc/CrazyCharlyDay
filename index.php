@@ -45,6 +45,11 @@ $app->get('/membre/:id', function ($id) {
     $cont->getMembre($id);
 });
 
+$app->get('/creneaux', function () {
+    $cont = new \crazycharlyday\controller\ControllerCreneau();
+    $cont->listCreneau();
+});
+
 $db = new DB();
 $db->addConnection(parse_ini_file("src/conf/conf.ini"));
 $db->setAsGlobal();

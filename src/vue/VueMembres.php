@@ -33,7 +33,7 @@ class VueMembres extends Vue
                 $cont .= $this->renderListeAdv();
                 break;
             case self::MEMBRE:
-                //$cont .=$this->renderMembre();
+                $cont .=$this->renderMembre();
                 break;
         }
 
@@ -83,12 +83,10 @@ class VueMembres extends Vue
 END;
     }
 
-    private function renderMembre($id) {
+    private function renderMembre() {
        $tableau = $this->tableau;
 
-       $slim = Slim::getInstance();
-
-       $value = "<div id='title'>$tableau->nom</div>";
+       $value = "<div>$tableau->nom</div>";
 
        return $value;
     }
