@@ -5,7 +5,7 @@ namespace crazycharlyday\controller;
 
 use Slim\App;
 
-class ControllerMembres extends Controller
+class ControllerMembres
 {
     /**
      * ItemController constructor.

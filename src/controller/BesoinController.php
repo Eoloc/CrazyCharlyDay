@@ -10,14 +10,13 @@ use wishlist\views\VueBesoin;
  * Classe du Controller de Besoin.
  * @package crazycharlyday\controller
  */
-class BesoinController extends Controller
+class BesoinController
 {
 
     public function showAll(){
         $b = Besoin::select('*')->get();
         $arr = json_decode($b);
-        $vue = new VueBesoin($arr);
-        $vue->views('showAll');
+        $view = new VueBesoin($arr);
     }
 
 }

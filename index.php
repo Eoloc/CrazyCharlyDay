@@ -3,6 +3,7 @@
 <?php
 session_start();
 
+use crazycharlyday\controller\BesoinController;
 use crazycharlyday\controller\CompteController;
 use crazycharlyday\vue\VueAccueil;
 use crazycharlyday\vue\VueMembres;
@@ -34,6 +35,11 @@ $app->post('/connect', function () {
     $cCont = new CompteController();
     $cCont->auth();
 });
+
+$app->get('/besoin', function () {
+    $cCont = new besoinController();
+    $cCont->showAll();
+})->setName('besoin');
 
 $db = new DB();
 $db->addConnection(parse_ini_file("src/conf/conf.ini"));
