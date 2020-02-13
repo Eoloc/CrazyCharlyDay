@@ -44,14 +44,14 @@ class VueMembres extends Vue
         }
 
 
-        $html = <<<END
+        $html = "
         $head
         $menu
         <div class=\"container\">
         $cont
         </div>
         $foot
-        END;
+        ";
 
         echo $html;
     }
@@ -81,17 +81,17 @@ class VueMembres extends Vue
             </div>";
         }
 
-        return <<<END
-        <nav class="navbar navbar-light bg-light">
-            <form class="form-inline">
-                <input class="form-control mr-sm-2" type="search" placeholder="Nom" aria-label="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Chercher</button>
+        return "
+        <nav class=\"navbar navbar-light bg-light\">
+            <form class=\"form-inline\">
+                <input class=\"form-control mr-sm-2\" type=\"search\" placeholder=\"Nom\" aria-label=\"Search\">
+                <button class=\"btn btn-outline-success my-2 my-sm-0\" type=\"submit\">Chercher</button>
             </form>
         </nav>
-        <div class="cartes">
+        <div class=\"cartes\">
         $text
         </div>
-        END;
+        ";
     }
 
     private function renderMembre()
@@ -120,16 +120,16 @@ class VueMembres extends Vue
             </div>";
         }
 
-        return <<<END
-        <nav class="navbar navbar-light bg-light">
-            <form class="form-inline">
-                <input class="form-control mr-sm-2" type="search" placeholder="Nom" aria-label="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Chercher</button>
+        return "
+        <nav class=\"navbar navbar-light bg-light\">
+            <form class=\"form-inline\">
+                <input class=\"form-control mr-sm-2\" type=\"search\" placeholder=\"Nom\" aria-label=\"Search\">
+                <button class=\"btn btn-outline-success my-2 my-sm-0\" type=\"submit\">Chercher</button>
             </form>
         </nav>
         <div>
         $text
         </div>
-        END;
+        ";
     }
 }

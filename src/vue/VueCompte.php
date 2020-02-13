@@ -47,20 +47,20 @@ END;
     $head = parent::renduTitre();
     $menu = parent::renduMenu();
     $foot = parent::rendufooter();
-    $html = "<<<END
+    $html = "
     $head
     $menu
     <div class=\"container\">
     $cont
     </div>
     $foot
-    END";
+    ";
     echo $html;
   }
 
   private function renderForm()
   {
-    return "<<<END
+    return "
         <div class=\"formconnexion\">
           <form method=\"post\" action=\"\">
             <h5>Créer votre compte utilisateur !</h5>
@@ -105,7 +105,7 @@ END;
             <button type=\"submit\" class=\"btn btn-primary\">Validez</button>
           </form>
         </div>
-        END";
+        ";
   }
 
   private function renderLog()
@@ -113,7 +113,7 @@ END;
     $slim = Slim::getInstance();
     $request = $slim->request;
     $url = $request->getRootUri() . "/createcompte";
-    return "<<<END
+    return "
         <div class=\"formconnexion\">
           <form method=\"post\">
             <h4>Connexion</h4>
@@ -141,7 +141,7 @@ END;
             </div>
           </form>
         </div>
-        END";
+        ";
   }
 
 
@@ -151,7 +151,7 @@ END;
     $request = $slim->request;
     $url = $request->getPath();
     $urlLogout = $request->getRootUri() . "/logout";
-    return "<<<END
+    return "
 <div class=\"row\">
   <div class=\"col-3\">
     <div class=\"nav flex-column nav-pills\" role=\"tablist\" aria-orientation=\"vertical\">
@@ -166,7 +166,7 @@ END;
     </div>
   </div>
 </div>
-END";
+";
   }
 
   public function __set($property, $value)

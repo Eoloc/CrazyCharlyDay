@@ -37,7 +37,7 @@ class VueCreneau extends Vue
 
     public function singleView()
     {
-        return "<<< EOF
+        return "
 <table>
     <tr>
         <td>$this->list['jour']</td>
@@ -46,7 +46,7 @@ class VueCreneau extends Vue
         <td>$this->list['heurefin']</td>
     </tr>
 </table>
-EOF";
+";
     }
 
     public function listView()
@@ -58,13 +58,12 @@ EOF";
             $semaine = $value['semaine'];
             $heured = $value['heuredeb'];
             $heuref = $value['heurefin'];
-            $html .= <<< EOF
+            $html .= "
     <tr>
         <td>Date du creneau {calc_date('2020-01-20',$semaine,$jour,0)}</td>
         <td>Heure de debut : $heured</td>
         <td>Heure de fin : $heuref</td>
-    </tr>
-EOF;
+    </tr>";
         }
         $html .= '</table>
 </div>';
@@ -73,7 +72,7 @@ EOF;
 
     public function formulaireCreneau()
     {
-        $html = "<<< EOF
+        $html = "
 <form class=\"form-creneau\" method=\"POST\" action=../../index.php/ajoutercreneau>
 <fieldset>
 
@@ -117,7 +116,7 @@ EOF;
     </div>
 </fieldset>
 </form>
-EOF";
+";
         return $html;
     }
 }
