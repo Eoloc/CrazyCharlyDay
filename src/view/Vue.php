@@ -1,5 +1,5 @@
 <?php
-namespace crazycharlyday\vue;
+namespace crazycharlyday\view;
 
 abstract class Vue
 {
