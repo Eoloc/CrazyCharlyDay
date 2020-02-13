@@ -6,6 +6,8 @@ namespace crazycharlyday\date;
 
 class CalcDate
 {
+    function __construct(){}
+
     function calc_date($ancre, $semaine, $jour, $cycle = 0)
     {
         // On vérifie les paramètres...
