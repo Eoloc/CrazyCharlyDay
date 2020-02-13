@@ -26,7 +26,6 @@ $app->get('/', function () {
     $vueIndex->render(1);
 })->setName("Menu");
 
-
 $app->get('/membres', function () {
   $vueIndex = new VueMembres();
   $vueIndex->render(1);
