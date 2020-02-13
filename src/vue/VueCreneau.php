@@ -10,7 +10,6 @@ class VueCreneau extends Vue
 
     function __construct(...$l){
         $this->liste = $l;
-        $this->date = new CalcDate();
     }
 
     public function render($sel)

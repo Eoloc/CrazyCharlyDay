@@ -44,14 +44,14 @@ class VueMembres extends Vue
         }
 
 
-        $html = "<<<END
+        $html = <<<END
         $head
         $menu
         <div class=\"container\">
         $cont
         </div>
         $foot
-        END";
+        END;
 
         echo $html;
     }
@@ -91,7 +91,7 @@ class VueMembres extends Vue
         <div class="cartes">
         $text
         </div>
-END;
+        END;
     }
 
     private function renderMembre()
@@ -130,6 +130,6 @@ END;
         <div>
         $text
         </div>
-END;
+        END;
     }
 }
