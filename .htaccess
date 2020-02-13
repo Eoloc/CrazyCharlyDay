@@ -2,7 +2,7 @@ RewriteEngine On
 #
 # RewriteBase indispensable sur webetu :
 
-RewriteBase /crazycharlyday/
+#RewriteBase /crazycharlyday/
 
 #
 # Pour interdire l'accès aux répertoires contenant du code
