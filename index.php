@@ -64,6 +64,11 @@ $app->get('/ajoutcreneaux', function () {
     $cont->seeFormCrea();
 });
 
+$app->get('/creabesoin', function () {
+    $cont = new BesoinController();
+    $cont->formCrea();
+})->setName('creabesoins');
+
 $db = new DB();
 $db->addConnection(parse_ini_file("src/conf/conf.ini"));
 $db->setAsGlobal();
