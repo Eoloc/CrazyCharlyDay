@@ -1,18 +1,5 @@
 <?php
 
-// Changement de locale pour être en français
-if (!setlocale(LC_TIME, 'fr_FR.utf8', 'fr_FR', 'fr'))
-    throw new Exception ('Français introuvable : corriger ou commenter cette ligne (pour la langue par défaut)');
-
-/**
- * Fonction de calcul de date.
- *
- * @param string $ancre date de départ (ancrage de départ)
- * @param integer $cycle n° de cycle (premier cycle = 0)
- * @param string $semaine nom de la semaine (de 'A' à 'D')
- * @param integer $jour n° du jour (de 1 à 7)
- * @return object
- */
 
 
 //

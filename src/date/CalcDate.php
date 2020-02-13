@@ -4,12 +4,29 @@
 namespace crazycharlyday\date;
 
 
+use DateInterval;
+use DateTime;
+use Exception;
+
+/**
+ * Fonction de calcul de date.
+ *
+ * @param string $ancre date de départ (ancrage de départ)
+ * @param integer $cycle n° de cycle (premier cycle = 0)
+ * @param string $semaine nom de la semaine (de 'A' à 'D')
+ * @param integer $jour n° du jour (de 1 à 7)
+ * @return object
+ */
 class CalcDate
 {
     function __construct(){}
 
     function calc_date($ancre, $semaine, $jour, $cycle = 0)
     {
+        // Changement de locale pour être en français
+        if (!setlocale(LC_TIME, 'fr_FR.utf8', 'fr_FR', 'fr'))
+            throw new Exception ('Français introuvable : corriger ou commenter cette ligne (pour la langue par défaut)');
+
         // On vérifie les paramètres...
         if ((gettype($cycle) !== 'integer') || ($cycle < 0))
             throw new Exception('calc_date : mauvais numéro de cycle');
