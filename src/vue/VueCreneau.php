@@ -5,7 +5,7 @@ class VueCreneau extends Vue
 {
     private $list;
 
-    function __construct($l){
+    function __construct(...$l){
         $this->list = $l;
     }
 
