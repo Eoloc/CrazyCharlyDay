@@ -1,6 +1,8 @@
 <?php
 namespace crazycharlyday\vue;
 
+use Slim\Slim;
+
 abstract class Vue
 {
     public abstract function render($sel);
@@ -30,7 +32,9 @@ abstract class Vue
 
 
     protected final function renduMenu(){
-
+        $slim = Slim::getInstance();
+        $request = $slim->request;
+        $url = $request->getRootUri() . "/connect";
   return "<body>
 
   <div class=\"d-flex\" id=\"wrapper\">
@@ -69,6 +73,9 @@ abstract class Vue
             </li>
             <li class=\"nav-item active\">
               <a class=\"nav-link\" href=\"/\">Accueil <span class=\"sr-only\">(current)</span></a>
+            </li>
+            <li class=\"nav-item\">
+              <a class=\"nav-link\" href=\"$url\">Connexion</a>
             </li>
             <li class=\"nav-item dropdown\">
               <a class=\"nav-link dropdown-toggle\" id=\"navbarDropdown\" role=\"button\" aria-expanded=\"false\" aria-haspopup=\"true\" href=\"#\" data-toggle=\"dropdown\">
