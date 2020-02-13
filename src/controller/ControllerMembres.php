@@ -3,7 +3,9 @@
 
 namespace crazycharlyday\controller;
 
-use Slim\App;
+use crazycharlyday\model\User;
+use crazycharlyday\vue\VueMembres;
+use Slim\Slim;
 
 class ControllerMembres
 {
@@ -11,10 +13,19 @@ class ControllerMembres
      * ItemController constructor.
      * @param $a App Objet slim injecté dans le contoleur
      */
-    public function __construct($a = NULL)
-    {
-        parent::__construct($a);
-        
+    public function __construct()
+    {}
+
+    public function getMembres(){
+        $membre = User::OrderBy('iduser', 'asc')->get();
+        $vue = new VueMembres($membre);
+        $vue->render(VueMembres::LISTE);
+    }
+
+    public function getMembre($id){
+        $membre = User::where('iduser', '=', $id)->first();
+        $vue = new VueMembres($membre);
+        $vue->render(VueMembres::LISTE);
     }
 
     

@@ -9,9 +9,14 @@ class VueMembres extends Vue
     const LISTE = 5;
     const LOGIN = 4;
     const LISTERECHERCHE = 6;
+    const MEMBRE = 7;
+
+    protected $tableau;
 
 
-    public function __construct() {}
+    public function __construct($tab) {
+        $this->tableau = $tab;
+    }
 
     public function render($sel)
     {
@@ -26,6 +31,9 @@ class VueMembres extends Vue
                 break;
             case self::LOGIN:
                 $cont .= $this->renderListeAdv();
+                break;
+            case self::MEMBRE:
+                $cont .=$this->renderMembre();
                 break;
         }
 
@@ -42,6 +50,20 @@ class VueMembres extends Vue
     }
 
     private function renderListe(){
+        $tableau = $this->tableau;
+        $membres = $tableau->User;
+        $text = "";
+
+        foreach ($membres as $user) {
+            $text .= "<div>$user->nom</div>";
+            $text .= "<div>$user->prenom</div>";
+            $text .= "<div>$user->mail</div>";
+            $text .= "<div>$user->tel</div>";
+            $text .= "<div>$user->nombreAbs</div>";
+            $text .= "<div>$user->permanence</div>";
+            $text .= "<div>$user->statut</div>";
+        }
+
         return <<<END
         <nav class="navbar navbar-light bg-light">
         <form class="form-inline">
@@ -49,8 +71,22 @@ class VueMembres extends Vue
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Chercher</button>
         </form>
         </nav>
-        END;
+        <div>
+        $text
+        </div>
+END;
     }
+
+    private function renderMembre($id) {
+       $tableau = $this->tableau;
+
+       $slim = Slim::getInstance();
+
+       $value = "<div id='title'>$tableau->nom</div>";
+
+       return $value;
+    }
+
 
 
 
