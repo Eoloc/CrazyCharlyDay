@@ -85,7 +85,7 @@ class CompteController
                 $slim->redirect($slim->urlFor("Menu"), 301);
             } catch (\crazycharlyday\exception\AuthException $e) {
                 setcookie("Error", $e->getMessage(), time() + 10);
-                $slim->redirect($slim->urlFor("connect"), 302);
+                $slim->redirect($slim->urlFor("connected"), 302);
             }
         }
     }

@@ -35,6 +35,7 @@ abstract class Vue
         $slim = Slim::getInstance();
         $request = $slim->request;
         $url = $request->getRootUri() . "/connect";
+        $url = $this->generateLink();
   return "<body>
 
   <div class=\"d-flex\" id=\"wrapper\">
@@ -68,9 +69,7 @@ abstract class Vue
 
         <div class=\"collapse navbar-collapse\" id=\"navbarSupportedContent\">
           <ul class=\"navbar-nav ml-auto mt-2 mt-lg-0\">
-            <li class=\"nav-item\">
-              <button id=\"connexion\" class=\"btn btn-success\" id=\"menu-toggle\">Connexion</button>
-            </li>
+            
             <li class=\"nav-item active\">
               <a class=\"nav-link\" href=\"/\">Accueil <span class=\"sr-only\">(current)</span></a>
             </li>
@@ -78,6 +77,7 @@ abstract class Vue
               <a class=\"nav-link dropdown-toggle\" id=\"navbarDropdown\" role=\"button\" aria-expanded=\"false\" aria-haspopup=\"true\" href=\"#\" data-toggle=\"dropdown\">
                 Options
               </a>
+              $url
               <div class=\"dropdown-menu dropdown-menu-right\" aria-labelledby=\"navbarDropdown\">
                 <a class=\"dropdown-item\" href=\"#\">...</a>
                 <a class=\"dropdown-item\" href=\"#\">...</a>
@@ -116,6 +116,29 @@ abstract class Vue
 </html>";
     }
 
+
+    private final function generateLink() {
+        $slim = Slim::getInstance();
+        $request = $slim->request;
+        if (!array_key_exists("id", $_SESSION)) {
+            $url = $request->getRootUri() . "/connect";
+            $url = "<li class=\"nav-item\">
+              <button id=\"connexion\" class=\"btn btn-success\" id=\"menu-toggle\">Connexion</button>
+            </li>";
+        } else {
+            $name = $_SESSION['id']['login'];
+            $t = $request->getRootUri() . '/connected';
+            $url = "<li class=\"nav-item active\">
+              <a class=\"nav-link\" href=\"/\">Bienvenue $name<span class=\"sr-only\">(current)</span></a>
+              </li>
+              <li class=\"nav-item\">
+              <button id=\"deconnexion\" class=\"btn btn-success\" id=\"menu-toggle\">Déconnexion</button>
+            </li>";
+        }
+        return $url;
+    }
+
 }
+
 
 ?>

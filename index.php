@@ -30,6 +30,11 @@ $app->post('/connect', function () {
     $cCont->auth();
 });
 
+$app->get('/connected', function (){
+   $cCont = new CompteController();
+   $cCont->connected();
+})->setName('connected');
+
 $app->get('/besoins', function () {
     $cCont = new BesoinController();
     $cCont->showAll();
@@ -79,6 +84,11 @@ $app->get('/creabesoin', function () {
     $cont = new BesoinController();
     $cont->formCrea();
 })->setName('creabesoins');
+
+$app->get('/logout', function () {
+    $cCont = new CompteController();
+    $cCont->logout();
+});
 
 $db = new DB();
 $db->addConnection(parse_ini_file("src/conf/conf.ini"));
