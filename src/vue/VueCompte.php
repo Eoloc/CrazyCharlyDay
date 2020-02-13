@@ -112,7 +112,6 @@ END;
   {
     $slim = Slim::getInstance();
     $request = $slim->request;
-    $url = $request->getRootUri() . "/createcompte";
     return "
         <div class=\"formconnexion\">
           <form method=\"post\">
@@ -132,9 +131,6 @@ END;
                 <input  type=\"submit\" class=\"btn-success btn\" id=\"subM\" value=\"Se connecter \"/>
               </div>
               <div class=\"col-md-6\">
-                <div>
-                  <a href=\"$url\">Créez un compte</a>
-                </div>
               </div>
               <div>
               </div>

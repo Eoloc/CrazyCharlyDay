@@ -1,6 +1,7 @@
 <?php
 namespace crazycharlyday\vue;
 
+use crazycharlyday\model\User;
 use Slim\Slim;
 
 abstract class Vue
@@ -128,12 +129,19 @@ abstract class Vue
         } else {
             $name = $_SESSION['id']['login'];
             $t = $request->getRootUri() . '/connected';
+            $user = User::where("login", "=",$name )->first();
+            ;
             $url = "<li class=\"nav-item active\">
               <a class=\"nav-link\" href=\"/\">Bienvenue $name<span class=\"sr-only\">(current)</span></a>
               </li>
               <li class=\"nav-item\">
               <button id=\"deconnexion\" class=\"btn btn-success\" id=\"menu-toggle\">Déconnexion</button>
             </li>";
+            if( $user->statut == "admin"){
+                $url .="<li class=\"nav-item\">
+              <button id=\"creerCompte\" class=\"btn btn-success\" id=\"menu-toggle\">Créer un compte</button>
+            </li>";
+            }
         }
         return $url;
     }

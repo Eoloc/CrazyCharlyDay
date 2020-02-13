@@ -14,7 +14,7 @@ class CompteController
 {
 
     public function compteCrea() {
-        if (!$this->isConnected()) {
+
             $msg = "";
             if (isset($_COOKIE['Error'])) {
                 $msg = $_COOKIE['Error'];
@@ -22,10 +22,7 @@ class CompteController
             }
             $vueCompte = new \crazycharlyday\vue\VueCompte($msg);
             $vueCompte->render(VueCompte::CREA);
-        } else {
-            $slim = Slim::getInstance();
-            $slim->redirect($slim->urlFor("Menu"), 301);
-        }
+
     }
 
     private function isConnected() {
@@ -34,7 +31,7 @@ class CompteController
 
     public function postCompteCrea() {
         $slim = Slim::getInstance();
-        if (!$this->isConnected()) {
+
             $nom = filter_var($_POST['name'], FILTER_SANITIZE_SPECIAL_CHARS);
             $prenom = filter_var($_POST['prenom'], FILTER_SANITIZE_SPECIAL_CHARS);
             $email = $_POST['mail'];
@@ -55,9 +52,7 @@ class CompteController
                 setcookie("Error", "Les mots de passe ne correspondent pas ", time() + 10);
                 $slim->redirect($slim->urlFor("createcompte"), 302);
             }
-        } else {
-            $slim->redirect($slim->urlFor("Menu"), 301);
-        }
+
     }
 
     public function formConn() {

@@ -2,6 +2,10 @@
 
 namespace crazycharlyday\vue;
 
+use crazycharlyday\date\CalcDate;
+use crazycharlyday\model\Creneau;
+use crazycharlyday\model\Role;
+
 class VueMembres extends Vue
 {
     const TITRE = 1;
@@ -107,14 +111,20 @@ class VueMembres extends Vue
     private function renderBesoins()
     {
         $besoins = $this->tableau;
-        //$creneaux = $besoins->Creneau;
+
         $text = "";
 
-        foreach ($besoins as $besoin) {
+        foreach ($this->tableau as $key => $value) {
+            $creneau = Creneau::where('idcreneau', '=', $value->idcreneau)->first();
+            $role = Role::where('idrole', '=', $value->idrole)->first();
+            $calc = new CalcDate();
+            $tmp=$calc->calc_date('2020-01-20',$creneau['semaine'] ,$creneau['jour'],0);
+
+
             $text .= "
             <div class=\"card\" style=\"width: 18rem;\">
             <div class=\"card-body\">
-                <h5 class=\"card-title\">$besoin->idcreneau $besoin->idbesoin</h5>
+                <h5 class=\"card-title\">{$tmp->jour_nom} de {$creneau['heuredeb']}h à  {$creneau['heurefin']}h : {$role['label']}</h5>
                 
             </div>
             </div>";
