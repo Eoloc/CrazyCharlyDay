@@ -7,6 +7,7 @@ class VueMembres extends Vue
     const MENU = 2;
     const FOOTER = 99;
     const LISTE = 5;
+    const LOGIN = 4;
     const LISTERECHERCHE = 6;
 
 
