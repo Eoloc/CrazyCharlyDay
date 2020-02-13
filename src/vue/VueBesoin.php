@@ -35,14 +35,14 @@ class VueBesoin extends Vue
                 break;
         }
 
-        $html = <<<END
+        $html = "
         $head
         $menu
-        <div class="container">
+        <div class=\"container\">
         $cont
         </div>
         $foot
-        END;
+        ";
 
         echo $html;
     }
@@ -52,19 +52,19 @@ class VueBesoin extends Vue
         $roles = Role::all();
         $creneaux = Creneau::all();
 
-        $text .= <<<END
-        <form class="form-horizontal">
+        $text .= "
+        <form class=\"form-horizontal\">
                 <fieldset>
                 
                 <!-- Form Name -->
                 <legend>Créer un besoin</legend>
                 
                 <!-- Select Basic -->
-                <div class="form-group">
-                  <label class="col-md-4 control-label" for="selectRole">Rôle</label>
-                  <div class="col-md-4">
-                    <select id="selectRole" name="selectRole" class="form-control">
-END;
+                <div class=\"form-group\">
+                  <label class=\"col-md-4 control-label\" for=\"selectRole\">Rôle</label>
+                  <div class=\"col-md-4\">
+                    <select id=\"selectRole\" name=\"selectRole\" class=\"form-control\">
+";
 
         foreach($roles as $role){
 
@@ -72,42 +72,38 @@ END;
 
         };
 
-        $text .=
-        <<<END
+        $text .= "
                     </select>
                   </div>
                 </div>
                 
                 <!-- Select Basic -->
-                <div class="form-group">
-                  <label class="col-md-4 control-label" for="selectCreneau">Créneau</label>
-                  <div class="col-md-4">
-                    <select id="selectCreneau" name="selectCreneau" class="form-control">
-                      
-  END;
+                <div class=\"form-group\">
+                  <label class=\"col-md-4 control-label\" for=\"selectCreneau\">Créneau</label>
+                  <div class=\"col-md-4\">
+                    <select id=\"selectCreneau\" name=\"selectCreneau\" class=\"form-control\">
+                      ";
         foreach($creneaux as $creneau){
 
             $text .= "<option value=$creneau->idcreneau>$creneau->jour</option>";
 
         };
 
-        $text .=
-        <<<END
+        $text .="
                     </select>
                   </div>
                 </div>
                 
                 <!-- Button -->
-                <div class="form-group">
-                <label class="col-md-4 control-label" for="submit"></label>
-  <div class="col-md-4">
-    <button id="submit" name="submit" class="btn btn-primary">Valider</button>
+                <div class=\"form-group\">
+                <label class=\"col-md-4 control-label\" for=\"submit\"></label>
+  <div class=\"col-md-4\">
+    <button id=\"submit\" name=\"submit\" class=\"btn btn-primary\">Valider</button>
   </div>
 </div>
                 
                 </fieldset>
-                </form>
-END;
+                </form>";
 
 
         return $text;
