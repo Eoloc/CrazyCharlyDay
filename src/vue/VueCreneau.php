@@ -2,7 +2,7 @@
 
 namespace crazycharlyday\vue;
 
-
+use crazycharlyday\date\CalcDate;
 
 class VueCreneau extends Vue
 {
@@ -38,7 +38,7 @@ class VueCreneau extends Vue
 
     public function singleView()
     {
-        return <<< EOF
+        return "<<< EOF
 <table>
     <tr>
         <td>$this->list['jour']</td>
@@ -47,7 +47,7 @@ class VueCreneau extends Vue
         <td>$this->list['heurefin']</td>
     </tr>
 </table>
-EOF;
+EOF";
     }
 
     public function listView()
@@ -74,51 +74,51 @@ EOF;
 
     public function formulaireCreneau()
     {
-        $html = <<< EOF
-<form class="form-creneau" method="POST" action=../../index.php/ajoutercreneau>
+        $html = "<<< EOF
+<form class=\"form-creneau\" method=\"POST\" action=../../index.php/ajoutercreneau>
 <fieldset>
 
 <!-- Form Name -->
 <legend>Ajout d'un creneau</legend>
 
 <!-- Text input-->
-    <div class="form-group">
-        <label class="col-md-4 control-label" for="">Jour</label>  
-        <div class="col-md-4">
-        <input class="form-control input-md" type="text" placeholder="" name="jour">
+    <div class=\"form-group\">
+        <label class=\"col-md-4 control-label\" for=\"\">Jour</label>  
+        <div class=\"col-md-4\">
+        <input class=\"form-control input-md\" type=\"text\" placeholder=\"\" name=\"jour\">
         </div>
     </div>
 
 <!-- Text input-->
-    <div class="form-group">
-        <label class="col-md-4 control-label" for="">Semaine</label>  
-        <div class="col-md-4">
-        <input class="form-control input-md" type="text" placeholder="" name="semaine">
+    <div class=\"form-group\">
+        <label class=\"col-md-4 control-label\" for=\"\">Semaine</label>  
+        <div class=\"col-md-4\">
+        <input class=\"form-control input-md\" type=\"text\" placeholder=\"\" name=\"semaine\">
         </div>
     </div>
 
 <!-- Text input-->
-    <div class="form-group">
-        <label class="col-md-4 control-label" for="">Heure de départ</label>  
-        <div class="col-md-4">
-        <input class="form-control input-md" type="text" placeholder="" name="heuredep">
+    <div class=\"form-group\">
+        <label class=\"col-md-4 control-label\" for=\"\">Heure de départ</label>  
+        <div class=\"col-md-4\">
+        <input class=\"form-control input-md\" type=\"text\" placeholder=\"\" name=\"heuredep\">
         </div>
     </div>
 
 <!-- Text input-->
-    <div class="form-group">
-        <label class="col-md-4 control-label" for="textinput">Heure de fin</label>  
-        <div class="col-md-4">
-        <input class="form-control input-md" id="textinput" type="text" placeholder="" name="heurefin">
+    <div class=\"form-group\">
+        <label class=\"col-md-4 control-label\" for=\"textinput\">Heure de fin</label>  
+        <div class=\"col-md-4\">
+        <input class=\"form-control input-md\" id=\"textinput\" type=\"text\" placeholder=\"\" name=\"heurefin\">
         </div>
     </div>
     
-    <div class="button-ajout">
+    <div class=\"button-ajout\">
         <input type=submit value='Ajouter creneau'</input>
     </div>
 </fieldset>
 </form>
-EOF;
+EOF";
         return $html;
     }
 }

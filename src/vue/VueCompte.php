@@ -47,65 +47,65 @@ END;
     $head = parent::renduTitre();
     $menu = parent::renduMenu();
     $foot = parent::rendufooter();
-    $html = <<<END
+    $html = "<<<END
     $head
     $menu
-    <div class="container">
+    <div class=\"container\">
     $cont
     </div>
     $foot
-    END;
+    END";
     echo $html;
   }
 
   private function renderForm()
   {
-    return <<<END
-        <div class="formconnexion">
-          <form method="post" action="">
+    return "<<<END
+        <div class=\"formconnexion\">
+          <form method=\"post\" action=\"\">
             <h5>Créer votre compte utilisateur !</h5>
-            <div class="form-row">
-              <div class="form-group col-md-6">
-                <label for="name">Nom</label>
-                <input type="text" class="form-control" id="name" name="name" placeholder="Nom" required>
+            <div class=\"form-row\">
+              <div class=\"form-group col-md-6\">
+                <label for=\"name\">Nom</label>
+                <input type=\"text\" class=\"form-control\" id=\"name\" name=\"name\" placeholder=\"Nom\" required>
               </div>
-              <div class="form-group col-md-6">
-                <label for="prenom">Prénom</label>
-                <input type="text" class="form-control" id="prenom" name="prenom" placeholder="Prenom" required>
+              <div class=\"form-group col-md-6\">
+                <label for=\"prenom\">Prénom</label>
+                <input type=\"text\" class=\"form-control\" id=\"prenom\" name=\"prenom\" placeholder=\"Prenom\" required>
               </div>
             </div>
-              <div class="form-row">
-                <div class="form-group col-md-6">
-                <label for="login">Téléphone</label>
-                <input type="text" class="form-control" id="tel" name="tel" placeholder="téléphone" required>
+              <div class=\"form-row\">
+                <div class=\"form-group col-md-6\">
+                <label for=\"login\">Téléphone</label>
+                <input type=\"text\" class=\"form-control\" id=\"tel\" name=\"tel\" placeholder=\"téléphone\" required>
               </div>
-              <div class="form-group col-md-6">
-                <label for="mail">Mail</label>
-                <input type="email" class="form-control" id="mail" name="mail" placeholder="Email" required>
+              <div class=\"form-group col-md-6\">
+                <label for=\"mail\">Mail</label>
+                <input type=\"email\" class=\"form-control\" id=\"mail\" name=\"mail\" placeholder=\"Email\" required>
               </div> </div>
-            <div class="form-row">
-                <div class="form-group col-md-6">
-                <label for="login">Login</label>
-                <input type="text" class="form-control" id="login" name="login" placeholder="login" required>
+            <div class=\"form-row\">
+                <div class=\"form-group col-md-6\">
+                <label for=\"login\">Login</label>
+                <input type=\"text\" class=\"form-control\" id=\"login\" name=\"login\" placeholder=\"login\" required>
               </div>
-              <div class="form-group col-md-6">
-                <label for="login">Statut de l'utilisateur</label>
-                <input type="text" class="form-control" id="statut" name="statut" placeholder="statut" required>
+              <div class=\"form-group col-md-6\">
+                <label for=\"login\">Statut de l'utilisateur</label>
+                <input type=\"text\" class=\"form-control\" id=\"statut\" name=\"statut\" placeholder=\"statut\" required>
               </div>
                 </div>
-            <div class="form-row">
-            <div class="form-group col-md-6">
-                <label for="password">Password</label>
-                <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
+            <div class=\"form-row\">
+            <div class=\"form-group col-md-6\">
+                <label for=\"password\">Password</label>
+                <input type=\"password\" class=\"form-control\" id=\"password\" name=\"password\" placeholder=\"Password\" required>
               </div>
-              <div class="form-group col-md-6">
-                <label for="passwordConf">Password</label>
-                <input type="password" class="form-control" id="passwordConf" name="passwordConf" placeholder="Password" required>
+              <div class=\"form-group col-md-6\">
+                <label for=\"passwordConf\">Password</label>
+                <input type=\"password\" class=\"form-control\" id=\"passwordConf\" name=\"passwordConf\" placeholder=\"Password\" required>
               </div> </div>
-            <button type="submit" class="btn btn-primary">Validez</button>
+            <button type=\"submit\" class=\"btn btn-primary\">Validez</button>
           </form>
         </div>
-        END;
+        END";
   }
 
   private function renderLog()
@@ -113,27 +113,27 @@ END;
     $slim = Slim::getInstance();
     $request = $slim->request;
     $url = $request->getRootUri() . "/createcompte";
-    return <<<END
-        <div class="formconnexion">
-          <form method="post">
+    return "<<<END
+        <div class=\"formconnexion\">
+          <form method=\"post\">
             <h4>Connexion</h4>
-            <div class="form-row">
-              <div class="form-group col-md-6">
-                <label for="login">Login</label>
-                <input type="text" class="form-control" id="login" name="login" placeholder="login" required>
+            <div class=\"form-row\">
+              <div class=\"form-group col-md-6\">
+                <label for=\"login\">Login</label>
+                <input type=\"text\" class=\"form-control\" id=\"login\" name=\"login\" placeholder=\"login\" required>
               </div>
-              <div class="form-group col-md-6">
-                <label for="password">Password</label>
-                <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
+              <div class=\"form-group col-md-6\">
+                <label for=\"password\">Password</label>
+                <input type=\"password\" class=\"form-control\" id=\"password\" name=\"password\" placeholder=\"Password\" required>
               </div>
             </div>
-            <div class="form-row">
-              <div class="col-md-6">    
-                <input  type="submit" class="btn-success btn" id="subM" value="Se connecter "/>
+            <div class=\"form-row\">
+              <div class=\"col-md-6\">    
+                <input  type=\"submit\" class=\"btn-success btn\" id=\"subM\" value=\"Se connecter \"/>
               </div>
-              <div class="col-md-6">
+              <div class=\"col-md-6\">
                 <div>
-                  <a href="$url">Créez un compte</a>
+                  <a href=\"$url\">Créez un compte</a>
                 </div>
               </div>
               <div>
@@ -141,7 +141,7 @@ END;
             </div>
           </form>
         </div>
-        END;
+        END";
   }
 
 
@@ -151,22 +151,22 @@ END;
     $request = $slim->request;
     $url = $request->getPath();
     $urlLogout = $request->getRootUri() . "/logout";
-    return <<<END
-<div class="row">
-  <div class="col-3">
-    <div class="nav flex-column nav-pills" role="tablist" aria-orientation="vertical">
-      <a class="nav-link"  href="$urlLogout" role="tab">Déconnexion</a>
+    return "<<<END
+<div class=\"row\">
+  <div class=\"col-3\">
+    <div class=\"nav flex-column nav-pills\" role=\"tablist\" aria-orientation=\"vertical\">
+      <a class=\"nav-link\"  href=\"$urlLogout\" role=\"tab\">Déconnexion</a>
     </div>
   </div>
-  <div class="col-9">
-    <div class="tab-content" id="v-pills-tabContent">
+  <div class=\"col-9\">
+    <div class=\"tab-content\" id=\"v-pills-tabContent\">
       <div>
       
 </div>
     </div>
   </div>
 </div>
-END;
+END";
   }
 
   public function __set($property, $value)
