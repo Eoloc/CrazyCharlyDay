@@ -54,9 +54,15 @@ $app->post("/createcompte", function () {
     $compteController = new \crazycharlyday\controller\CompteController();
     $compteController->postCompteCrea();
 });
+
 $app->get('/creneaux', function () {
     $cont = new \crazycharlyday\controller\ControllerCreneau();
     $cont->listCreneau();
+});
+
+$app->get('/creneau/:id', function ($id) {
+    $cont = new \crazycharlyday\controller\ControllerCreneau();
+    $cont->creneauParId($id);
 });
 
 $app->get('/formcreneaux', function () {

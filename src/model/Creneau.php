@@ -14,7 +14,7 @@ use Illuminate\Database\Query\Builder;
 class Creneau extends Model
 {
     protected $table = 'creneau';
-    protected $primarykey = 'idcreneau';
+    protected $primaryKey = 'idcreneau';
     public $timestamps = false;
 
     function nouveauCreneau($jour, $semaine, $heuredeb, $heurefin, ...$activation){
@@ -29,7 +29,7 @@ class Creneau extends Model
     }
 
     function byId($id){
-        return Creneau::where('idcreneau', '=',$id)->get();
+        return Creneau::where('idcreneau', '=', $id)->first();
     }
 
     function listeCreneaux(){

@@ -1,7 +1,7 @@
 <?php
 namespace crazycharlyday\vue;
 
-include '../date.php';
+
 
 class VueCreneau extends Vue
 {
@@ -35,7 +35,17 @@ class VueCreneau extends Vue
     }
 
     public function singleView(){
-        echo $this->list;
+        return <<< EOF
+<table>
+    <tr>
+        <td>$this->list['jour']</td>
+        <td>$this->list['semaine']</td>
+        <td>$this->list['heuredeb']</td>
+        <td>$this->list['heurefin']</td>
+    </tr>
+</table>
+EOF;
+
     }
 
     public function listView(){
@@ -96,7 +106,7 @@ EOF;
     <div class="form-group">
         <label class="col-md-4 control-label" for="textinput">Heure de fin</label>  
         <div class="col-md-4">
-        <input name="textinput" class="form-control input-md" id="textinput" type="text" placeholder="" name="heurefin">
+        <input class="form-control input-md" id="textinput" type="text" placeholder="" name="heurefin">
         </div>
     </div>
     
