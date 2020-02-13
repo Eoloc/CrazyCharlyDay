@@ -49,7 +49,7 @@ abstract class Vue
       <div class=\"dropdown-divider\"></div>
       <a href=\"creneaux\" class=\"list-group-item list-group-item-action bg-light\">Planning</a>
       <a href=\"membres\" class=\"list-group-item list-group-item-action bg-light\">Membres</a>
-      <a href=\"\besoins\" class=\"list-group-item list-group-item-action bg-light\">Besoins</a>
+      <a href=\"besoins\" class=\"list-group-item list-group-item-action bg-light\">Besoins</a>
       <a href=\"\#\" class=\"list-group-item list-group-item-action bg-light\">Permanences</a>
       <a href=\"\#\" class=\"list-group-item list-group-item-action bg-light\">Répartitions</a>
 
