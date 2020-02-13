@@ -9,7 +9,7 @@ use crazycharlyday\Vue\VueMembres;
 
 class ControllerCreneau
 {
-    public function __construct($a = NULL)
+    public function __construct()
     {
 
     }

@@ -12,13 +12,13 @@ class VueCreneau extends Vue
     public function render($sel)
     {
         switch($sel){
-            case 'LIST' : $menu = $this->listView();
+            case 'LIST' : $cont = $this->listView();
         }
         $head = parent::renduTitre();
         $menu = parent::renduMenu();
         $foot = parent::rendufooter();
 
-        echo $head . $menu . $foot;
+        echo $head . $menu . $cont . $foot;
     }
 
     public function listView(){

@@ -30,7 +30,7 @@ class Creneau extends Model
     }
 
     function listeCreneaux(){
-        $c = Creneau::OrderBy('idcreneau', 'asc')->get();
+        $c = Creneau::all();
         return $c;
     }
 }
