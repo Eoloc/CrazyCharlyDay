@@ -43,7 +43,7 @@ abstract class Vue
       <a id=\"adminpanel\" href=\"\#\" class=\"list-group-item list-group-item-action bg-light\">Panel Admin</a>
       <div class=\"dropdown-divider\"></div>
       <a href=\"\#\" class=\"list-group-item list-group-item-action bg-light\">Planning</a>
-      <a href=\"\#\" class=\"list-group-item list-group-item-action bg-light\">Membres</a>
+      <a href=\"membres\" class=\"list-group-item list-group-item-action bg-light\">Membres</a>
       <a href=\"\#\" class=\"list-group-item list-group-item-action bg-light\">Besoins</a>
       <a href=\"\#\" class=\"list-group-item list-group-item-action bg-light\">Permanences</a>
       <a href=\"\#\" class=\"list-group-item list-group-item-action bg-light\">Répartitions</a>
@@ -65,10 +65,10 @@ abstract class Vue
         <div class=\"collapse navbar-collapse\" id=\"navbarSupportedContent\">
           <ul class=\"navbar-nav ml-auto mt-2 mt-lg-0\">
             <li class=\"nav-item active\">
-              <a class=\"nav-link\" href=\"#\">Accueil <span class=\"sr-only\">(current)</span></a>
+              <a class=\"nav-link\" href=\"/\">Accueil <span class=\"sr-only\">(current)</span></a>
             </li>
             <li class=\"nav-item\">
-              <a class=\"nav-link\" href=\"#\">Connexion</a>
+              <a class=\"nav-link\" href=\"\">Connexion</a>
             </li>
             <li class=\"nav-item dropdown\">
               <a class=\"nav-link dropdown-toggle\" id=\"navbarDropdown\" role=\"button\" aria-expanded=\"false\" aria-haspopup=\"true\" href=\"#\" data-toggle=\"dropdown\">
@@ -96,16 +96,6 @@ abstract class Vue
   <!-- Bootstrap core JavaScript -->
   <script src=\"vendor/jquery/jquery.min.js\"></script>
   <script src=\"vendor/bootstrap/js/bootstrap.bundle.min.js\"></script>
-
-  <!-- Menu Toggle Script -->
-  <script>
-    $(\"#menu-toggle\").click(function(e) {
-      e.preventDefault();
-      $(\"#wrapper\").toggleClass(\"toggled\");
-    });
-  </script>
-
-
 
 
 </body>
