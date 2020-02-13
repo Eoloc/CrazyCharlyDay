@@ -4,5 +4,5 @@ function allerSurAuth(e) {
 }
 
 export function init(){
-    $('#connexion').hover(allerSurAuth);
+    $('#connexion').click(allerSurAuth);
 }
