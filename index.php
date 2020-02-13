@@ -20,9 +20,8 @@ $app->get('/', function () {
 })->setName("Menu");
 
 
-
 $app->get('/connect', function () {
-    $cCont = new CompteController();
+    $cCont = new \crazycharlyday\controller\CompteController();
     $cCont->formConn();
 })->setName('connect');
 
@@ -46,6 +45,15 @@ $app->get('/membre/:id', function ($id) {
     $cont->getMembre($id);
 });
 
+$app->get("/createcompte", function () {
+    $compteController = new \crazycharlyday\controller\CompteController();
+    $compteController->compteCrea();
+})->setName("createcompte");
+
+$app->post("/createcompte", function () {
+    $compteController = new \crazycharlyday\controller\CompteController();
+    $compteController->postCompteCrea();
+});
 $app->get('/creneaux', function () {
     $cont = new \crazycharlyday\controller\ControllerCreneau();
     $cont->listCreneau();
