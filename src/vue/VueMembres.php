@@ -42,14 +42,14 @@ class VueMembres extends Vue
         }
 
 
-        $html = <<<END
+        $html = "<<<END
         $head
         $menu
-        <div class="container">
+        <div class=\"container\">
         $cont
         </div>
         $foot
-        END;
+        END";
 
         echo $html;
     }
