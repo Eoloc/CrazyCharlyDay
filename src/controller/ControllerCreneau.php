@@ -23,7 +23,7 @@ class ControllerCreneau
         $m = Creneau::join('besoin', 'creneau.idcreneau', '=', 'besoin.idcreneau')
             ->join('inscription','besoin.idbesoin', '=', 'inscription.idbesoin')
             ->select('*')
-            ->where('inscription.iduser', '<>', '')
+            ->where('inscription.iduser', 'ISNULL', null, 'and')
             ->get();
 
         $v = new VueCreneau($m);
