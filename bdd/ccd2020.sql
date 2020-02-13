@@ -83,12 +83,6 @@ INSERT INTO user (nom, prenom, mail, tel, photo, login, mdp, nombreAbs, permanen
 ('nom11', 'Ariane', 'mail11', 000000011, '', 'login11', 'mdp11', '0', '3', 'membre'),
 ('nom12', 'Lois', 'mail12', 000000012, '', 'login12', 'mdp12', '0', '3', 'membre');
 
-
-
-
-
-
-
 CREATE TABLE creneau (
 idcreneau int(4) NOT NULL AUTO_INCREMENT,
 jour int(2) NOT NULL,
@@ -132,7 +126,9 @@ CREATE TABLE `besoin` (
 `idbesoin` int(11) NOT NULL AUTO_INCREMENT,
 `idcreneau` int(11) NOT NULL,
 `idrole` int(11) NOT NULL,
-PRIMARY KEY (`idbesoin`)
+PRIMARY KEY (`idbesoin`),
+FOREIGN KEY (idcreneau) REFERENCES creneau(idcreneau),
+FOREIGN KEY (idrole) REFERENCES role(idrole)
 );
 
 
@@ -145,9 +141,13 @@ INSERT INTO `besoin` (`idcreneau`, `idrole`) VALUES
 
 
 CREATE TABLE `inscription` (
-`idbesoin` int(11) NOT NULL AUTO_INCREMENT,
+`idinscription` int(11) NOT NULL AUTO_INCREMENT,
+`idbesoin` int(11) NOT NULL,
 `iduser` int(11) NOT NULL,
-PRIMARY KEY(`idbesoin`, `iduser`)
+PRIMARY KEY(`idinscription`),
+FOREIGN KEY (idbesoin) REFERENCES besoin(idbesoin),
+FOREIGN KEY (iduser) REFERENCES user(iduser)
+
 );
 
 INSERT INTO `inscription` (`iduser`) VALUES
