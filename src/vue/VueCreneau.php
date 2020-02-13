@@ -1,7 +1,7 @@
 <?php
 namespace crazycharlyday\vue;
 
-
+use crazycharlyday\date\CalcDate;
 
 class VueCreneau extends Vue
 {
@@ -58,7 +58,7 @@ EOF;
             $heuref = $value['heurefin'];
             $html .= <<< EOF
     <tr>
-        <td>Date du creneau {calc_date('2020-01-20',$semaine,$jour,0)}</td>
+        <td>Date du creneau {CalcDate.calc_date('2020-01-20',$semaine,$jour,0)}</td>
         <td>Heure de debut : $heured</td>
         <td>Heure de fin : $heuref</td>
     </tr>

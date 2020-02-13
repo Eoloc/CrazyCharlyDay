@@ -62,7 +62,7 @@ $app->get('/creneaux', function () {
 
 $app->get('/creneau/:id', function ($id) {
     $cont = new \crazycharlyday\controller\ControllerCreneau();
-    $cont->creneauParId($id);
+    $cont->getCreneau($id);
 });
 
 $app->get('/formcreneaux', function () {
